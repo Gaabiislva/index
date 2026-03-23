@@ -1747,6 +1747,25 @@ function showPage(id) {
     sunclick: {status:'aceita', obs:''},
   };
 
+  const baseReproList = [
+    'Titular falecido', 'Baixa renda', 'Energia reativa', 'Grupo A / Alta Tensão',
+    'B-Optante', 'Tarifa Branca / Boa Hora', 'Não assina / Analfabeto',
+    'CNPJ baixado / inapto', 'Financiamento ativo', 'Irrigação noturna'
+  ];
+
+  const reproExclude = {
+    comerc: ['Financiamento ativo'],
+  };
+
+  function buildReproBlock(key) {
+    var exclude = reproExclude[key] || [];
+    var items = baseReproList.filter(function(i) { return exclude.indexOf(i) === -1; });
+    return '<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px;font-size:11px;color:var(--text-2);">'
+      + items.map(function(i) { return '<span style="color:#ffffff;">• ' + i + '</span>'; }).join('')
+      + '</div>';
+  }
+
+
 function showSupplier(key) {
   const s = suppliers[key];
   if (!s) return;
@@ -1860,7 +1879,7 @@ function showSupplier(key) {
     + ruralBlock
     + regionBlock
     + nonReqBlock
-    + '<div class="d-card full" style="background:#051209;border-color:#1a4d2a;"><div class="d-card-label" style="color:#ff4444">Reprovação · válida para esta fornecedora</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px;font-size:11px;color:var(--text-2);"><span style="color:#ffffff;">• Titular falecido</span><span style="color:#ffffff;">• Baixa renda</span><span style="color:#ffffff;">• Energia reativa</span><span style="color:#ffffff;">• Grupo A / Alta Tensão</span><span style="color:#ffffff;">• B-Optante</span><span style="color:#ffffff;">• Tarifa Branca / Boa Hora</span><span style="color:#ffffff;">• Não assina / Analfabeto</span><span style="color:#ffffff;">• CNPJ baixado / inapto</span><span style="color:#ffffff;">• Financiamento ativo</span><span style="color:#ffffff;">• Irrigação noturna</span></div></div>';
+    + '<div class="d-card full" style="background:#051209;border-color:#1a4d2a;"><div class="d-card-label" style="color:#ff4444">Reprovação · válida para esta fornecedora</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px;font-size:11px;color:var(--text-2);">' + buildReproBlock(key) + '</div>';
 }
 // ─── CALCULADORA DE MÉDIA ───
 function confirmarMeses() {
