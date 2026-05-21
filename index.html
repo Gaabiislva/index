@@ -30,6 +30,9 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior: smooth; }
 
+html, body {
+  height: 100%;
+}
 body {
   background: var(--bg);
   color: var(--text-1);
@@ -48,6 +51,7 @@ body {
   width: 220px;
   height: 100vh;
   background: var(--surface);
+  overflow-y: auto;
   border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
@@ -58,6 +62,9 @@ body {
 .main {
   margin-left: 220px;
   min-height: 100vh;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
 }
 
 /* ─── SIDEBAR ─── */
@@ -1014,6 +1021,106 @@ tbody td:first-child {
   .pv-summary-label { font-size: 10px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px; }
   .pv-summary-val { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 800; color: var(--green); }
 
+
+  /* ── Light mode ──────────────────────────────────────── */
+  body.light-mode {
+    --bg: #f0f4f0;
+    --surface: #ffffff;
+    --surface2: #eaf0ea;
+    --surface3: #dde8dd;
+    --border: #ccd8cc;
+    --border2: #b8c8b8;
+    --green: #1a6e38;
+    --green-dim: #2a8a4a;
+    --green-muted: #d0edda;
+    --red: #b83030;
+    --red-muted: #fce8e8;
+    --amber: #9a6e10;
+    --amber-muted: #faefd8;
+    --blue: #1a5a7c;
+    --blue-muted: #d8eaf5;
+    --text-1: #111c11;
+    --text-2: #3a5e3a;
+    --text-3: #6a8a6a;
+    --text-4: #253525;
+    background-color: #f0f4f0;
+    color: #111c11;
+  }
+  body.light-mode .sidebar { background: #ffffff; border-right: 1px solid #ccd8cc; }
+  body.light-mode .topbar { background: #ffffff; border-bottom: 1px solid #ccd8cc; }
+  body.light-mode .content { background: #f0f4f0; }
+  body.light-mode .main { background: #f0f4f0; min-height: 100vh; }
+  body.light-mode html, body.light-mode body { background: #f0f4f0; }
+  body.light-mode .d-card { background: #ffffff !important; border-color: #ccd8cc !important; color: #111c11 !important; }
+  body.light-mode [style*="background:#051209"] { background: #fce8e8 !important; border-color: #e8c8c8 !important; }
+  body.light-mode [style*="background:#141814"] { background: #f0f4f0 !important; }
+  body.light-mode [style*="background:#0a0c0a"] { background: #f0f4f0 !important; }
+  body.light-mode [style*="background:#0f2318"] { background: #d0edda !important; }
+  body.light-mode [style*="background:#162840"] { background: #d8eaf5 !important; }
+  body.light-mode [style*="background:#1d221d"] { background: #eaf0ea !important; }
+  body.light-mode [style*="background:#250e0e"] { background: #fce8e8 !important; }
+  body.light-mode [style*="color:#ffffff"] { color: #111c11 !important; }
+  body.light-mode [style*="color:#d4ddd4"] { color: #111c11 !important; }
+  body.light-mode [style*="background:#051209"] { background: #fce8e8 !important; }
+  body.light-mode [style*="background:#141814"] { background: #f0f4f0 !important; }
+  body.light-mode [style*="background:#0a0c0a"] { background: #f0f4f0 !important; }
+  body.light-mode [style*="background:#0f2318"] { background: #d0edda !important; }
+  body.light-mode [style*="background:#162840"] { background: #d8eaf5 !important; }
+  body.light-mode [style*="color:#ffffff"] { color: #111c11 !important; }
+  body.light-mode [style*="color:var(--text-1)"] { color: #111c11; }
+
+  /* ── Sidebar toggle ───────────────────────────────────── */
+  .sidebar { transition: transform 0.2s ease; }
+  
+  .sidebar-toggle {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 208px;
+    width: 18px; height: 40px;
+    background: var(--surface2);
+    border: 1px solid var(--border2);
+    border-left: none;
+    border-radius: 0 6px 6px 0;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--text-2);
+    z-index: 300;
+    transition: left 0.2s ease;
+    user-select: none;
+}
+  .sidebar-toggle:hover { background: var(--surface3); color: var(--green); border-color: var(--green-dim); }
+  .sidebar-toggle.collapsed { left: 10px; }
+  .main { transition: margin-left 0.2s ease; }
+  .main.expanded { margin-left: 0; }
+
+  /* ── Sidebar footer ───────────────────────────────────── */
+  .sidebar-footer {
+    margin-top: auto;
+    padding: 14px 16px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .theme-toggle {
+    display: flex; align-items: center; gap: 8px;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 7px;
+    border: 1px solid var(--border2);
+    background: var(--surface2);
+    color: var(--text-2);
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    transition: all 0.15s;
+    width: 100%;
+    justify-content: center;
+  }
+  .theme-toggle:hover { border-color: var(--green-dim); color: var(--green); }
+
 </style>
 </head>
 <body>
@@ -1081,10 +1188,41 @@ tbody td:first-child {
       <div class="nav-dot" style="background:var(--border2);"></div> Pós Venda
     </div>
   </div>
+
+  <!-- Sidebar footer: theme toggle -->
+  <div class="sidebar-footer" style="display:flex;gap:8px;">
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" style="flex:1;">☀️ Modo Claro</button>
+    
+  </div>
+
+
+
 </aside>
 
 <!-- ─── MAIN ─── -->
 <main class="main">
+  <!-- Sidebar toggle — always visible -->
+  <button id="sidebarToggle" onclick="toggleSidebar()" style="
+    position:fixed;
+    left:208px;
+    top:50%;
+    transform:translateY(-50%);
+    width:18px; height:44px;
+    background:var(--surface2);
+    border:1px solid var(--border2);
+    border-left:none;
+    border-radius:0 6px 6px 0;
+    color:var(--text-2);
+    font-size:13px;
+    font-weight:700;
+    cursor:pointer;
+    z-index:500;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:left 0.2s;
+    padding:0;
+  ">&#8249;</button>
 
   <!-- TOP BAR -->
   <div class="topbar">
@@ -2532,7 +2670,7 @@ function showSupplier(key) {
     + regionBlock
     + oscilacaoBlock
     + nonReqBlock
-    + '<div class="d-card full" style="background:#051209;border-color:#1a4d2a;"><div class="d-card-label" style="color:#ff4444">Reprovação · válida para esta fornecedora</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px;font-size:11px;color:var(--text-2);">' + buildReproBlock(key) + '</div>';
+    + '<div class="d-card full" style="background:var(--red-muted);border-color:var(--border);"><div class="d-card-label" style="color:#ff4444">Reprovação · válida para esta fornecedora</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px;font-size:11px;color:var(--text-2);">' + buildReproBlock(key) + '</div>';
 }
 // ─── CALCULADORA DE MÉDIA ───
 function confirmarMeses() {
@@ -3162,25 +3300,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 (function() {
 
-  var posVendaData = {
-    'comerc': [{uf:'MG',conc:'CEMIG-D',desconto:10,posvenda:'iGreen',kwh:100}, {uf:'MG',conc:'CEMIG-D',desconto:16,posvenda:'iGreen',kwh:100}, {uf:'MG',conc:'CEMIG-D',desconto:20,posvenda:'iGreen',kwh:100}, {uf:'MG',conc:'CEMIG-D',desconto:24,posvenda:'iGreen',kwh:5000}, {uf:'MG',conc:'CEMIG-D',desconto:28,posvenda:'iGreen',kwh:10000}],
-    'cotesa': [{uf:'RS',conc:'RGE',desconto:8,posvenda:'iGreen',kwh:100}, {uf:'RS',conc:'RGE',desconto:10,posvenda:'iGreen',kwh:100}, {uf:'RS',conc:'RGE',desconto:12,posvenda:'iGreen',kwh:1000}, {uf:'RS',conc:'RGE',desconto:14,posvenda:'iGreen',kwh:1000}],
-    'edp': [{uf:'MG',conc:'CPFL SANTA CRUZ',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'MG',conc:'CPFL SANTA CRUZ',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'MG',conc:'CPFL SANTA CRUZ',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'MG',conc:'CPFL SANTA CRUZ',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'PR',conc:'CPFL SANTA CRUZ',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'PR',conc:'CPFL SANTA CRUZ',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'PR',conc:'CPFL SANTA CRUZ',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'PR',conc:'CPFL SANTA CRUZ',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'SP',conc:'CPFL SANTA CRUZ',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'SP',conc:'CPFL SANTA CRUZ',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'SP',conc:'CPFL SANTA CRUZ',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'SP',conc:'CPFL SANTA CRUZ',desconto:14,posvenda:'Fornecedora',kwh:1000}],
-    'fit': [{uf:'AL',conc:'EQUATORIAL',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'AL',conc:'EQUATORIAL',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'AL',conc:'EQUATORIAL',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'AL',conc:'EQUATORIAL',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'BA',conc:'COELBA',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'BA',conc:'COELBA',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'BA',conc:'COELBA',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'BA',conc:'COELBA',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'CE',conc:'ENEL',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'CE',conc:'ENEL',desconto:14,posvenda:'Fornecedora',kwh:100}, {uf:'CE',conc:'ENEL',desconto:18,posvenda:'Fornecedora',kwh:1000}, {uf:'CE',conc:'ENEL',desconto:20,posvenda:'Fornecedora',kwh:1000}, {uf:'GO',conc:'EQUATORIAL',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'GO',conc:'EQUATORIAL',desconto:14,posvenda:'Fornecedora',kwh:100}, {uf:'GO',conc:'EQUATORIAL',desconto:18,posvenda:'Fornecedora',kwh:1000}, {uf:'GO',conc:'EQUATORIAL',desconto:20,posvenda:'Fornecedora',kwh:1000}, {uf:'MG',conc:'ENERGISA MINAS RIO',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'MG',conc:'ENERGISA MINAS RIO',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'MG',conc:'ENERGISA MINAS RIO',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'MG',conc:'ENERGISA MINAS RIO',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'MS',conc:'ELEKTRO',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'MS',conc:'ELEKTRO',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'MS',conc:'ELEKTRO',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'MS',conc:'ELEKTRO',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'MS',conc:'ENERGISA',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'MS',conc:'ENERGISA',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'MS',conc:'ENERGISA',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'MS',conc:'ENERGISA',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'MT',conc:'ENERGISA',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'MT',conc:'ENERGISA',desconto:14,posvenda:'Fornecedora',kwh:100}, {uf:'MT',conc:'ENERGISA',desconto:18,posvenda:'Fornecedora',kwh:1000}, {uf:'MT',conc:'ENERGISA',desconto:20,posvenda:'Fornecedora',kwh:1000}, {uf:'PE',conc:'NEO ENERGIA',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'PE',conc:'NEO ENERGIA',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'PE',conc:'NEO ENERGIA',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'PE',conc:'NEO ENERGIA',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'PI',conc:'EQUATORIAL',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'PI',conc:'EQUATORIAL',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'PI',conc:'EQUATORIAL',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'PI',conc:'EQUATORIAL',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'PR',conc:'COPEL',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'PR',conc:'COPEL',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'PR',conc:'COPEL',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'PR',conc:'COPEL',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'RJ',conc:'ENERGISA MINAS RIO',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'RJ',conc:'ENERGISA MINAS RIO',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'RJ',conc:'ENERGISA MINAS RIO',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'RJ',conc:'ENERGISA MINAS RIO',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'RN',conc:'COSERN',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'RN',conc:'COSERN',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'RN',conc:'COSERN',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'RN',conc:'COSERN',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'SC',conc:'CELESC',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'SC',conc:'CELESC',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'SC',conc:'CELESC',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'SC',conc:'CELESC',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'SP',conc:'CPFL',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'SP',conc:'CPFL',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'SP',conc:'CPFL',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'SP',conc:'CPFL',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'SP',conc:'ELEKTRO',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'SP',conc:'ELEKTRO',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'SP',conc:'ELEKTRO',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'SP',conc:'ELEKTRO',desconto:14,posvenda:'Fornecedora',kwh:1000}],
-    'gedisa': [{uf:'MA',conc:'EQUATORIAL',desconto:8,posvenda:'Fornecedora',kwh:500}, {uf:'MA',conc:'EQUATORIAL',desconto:10,posvenda:'Fornecedora',kwh:500}, {uf:'MA',conc:'EQUATORIAL',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'MA',conc:'EQUATORIAL',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'MG',conc:'ENERGISA SUL SUDESTE',desconto:8,posvenda:'Fornecedora',kwh:500}, {uf:'MG',conc:'ENERGISA SUL SUDESTE',desconto:10,posvenda:'Fornecedora',kwh:500}, {uf:'MG',conc:'ENERGISA SUL SUDESTE',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'MG',conc:'ENERGISA SUL SUDESTE',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'RS',conc:'CEEE',desconto:8,posvenda:'Fornecedora',kwh:500}, {uf:'RS',conc:'CEEE',desconto:10,posvenda:'Fornecedora',kwh:500}, {uf:'RS',conc:'CEEE',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'RS',conc:'CEEE',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'SP',conc:'ENERGISA SUL SUDESTE',desconto:8,posvenda:'Fornecedora',kwh:500}, {uf:'SP',conc:'ENERGISA SUL SUDESTE',desconto:10,posvenda:'Fornecedora',kwh:500}, {uf:'SP',conc:'ENERGISA SUL SUDESTE',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'SP',conc:'ENERGISA SUL SUDESTE',desconto:14,posvenda:'Fornecedora',kwh:1000}],
-    'origo': [{uf:'PA',conc:'EQUATORIAL PA',desconto:8,posvenda:'iGreen',kwh:350}, {uf:'PA',conc:'EQUATORIAL PA',desconto:10,posvenda:'iGreen',kwh:350}, {uf:'PA',conc:'EQUATORIAL PA',desconto:12,posvenda:'iGreen',kwh:1000}, {uf:'PA',conc:'EQUATORIAL PA',desconto:14,posvenda:'iGreen',kwh:1000}, {uf:'TO',conc:'ENERGISA TOCANTINS',desconto:8,posvenda:'iGreen',kwh:100}, {uf:'TO',conc:'ENERGISA TOCANTINS',desconto:10,posvenda:'iGreen',kwh:100}, {uf:'TO',conc:'ENERGISA TOCANTINS',desconto:12,posvenda:'iGreen',kwh:1000}, {uf:'TO',conc:'ENERGISA TOCANTINS',desconto:14,posvenda:'iGreen',kwh:1000}],
-    'rzk': [{uf:'RJ',conc:'ENEL',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'RJ',conc:'ENEL',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'RJ',conc:'ENEL',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'RJ',conc:'ENEL',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'SP',conc:'CPFL PIRATININGA',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'SP',conc:'CPFL PIRATININGA',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'SP',conc:'CPFL PIRATININGA',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'SP',conc:'CPFL PIRATININGA',desconto:14,posvenda:'Fornecedora',kwh:1000}],
-    'solatio': [{uf:'PB',conc:'ENERGISA PB',desconto:8,posvenda:'iGreen',kwh:100}, {uf:'PB',conc:'ENERGISA PB',desconto:10,posvenda:'iGreen',kwh:100}, {uf:'PB',conc:'ENERGISA PB',desconto:12,posvenda:'iGreen',kwh:1000}, {uf:'PB',conc:'ENERGISA PB',desconto:14,posvenda:'iGreen',kwh:1000}],
-    'sunclick': [{uf:'ES',conc:'EDP',desconto:10,posvenda:'iGreen',kwh:100}, {uf:'MA',conc:'EQUATORIAL',desconto:8,posvenda:'iGreen',kwh:100}, {uf:'MA',conc:'EQUATORIAL',desconto:10,posvenda:'iGreen',kwh:100}, {uf:'MG',conc:'ENERGISA SUL SUDESTE',desconto:8,posvenda:'iGreen',kwh:100}, {uf:'MG',conc:'ENERGISA SUL SUDESTE',desconto:10,posvenda:'iGreen',kwh:100}, {uf:'RS',conc:'CEEE',desconto:8,posvenda:'iGreen',kwh:100}, {uf:'RS',conc:'CEEE',desconto:10,posvenda:'iGreen',kwh:100}, {uf:'SE',conc:'ENERGISA',desconto:8,posvenda:'iGreen',kwh:350}, {uf:'SE',conc:'ENERGISA',desconto:10,posvenda:'iGreen',kwh:350}, {uf:'SE',conc:'ENERGISA',desconto:12,posvenda:'iGreen',kwh:1000}, {uf:'SE',conc:'ENERGISA',desconto:14,posvenda:'iGreen',kwh:1000}, {uf:'SP',conc:'ENERGISA SUL SUDESTE',desconto:8,posvenda:'iGreen',kwh:100}, {uf:'SP',conc:'ENERGISA SUL SUDESTE',desconto:10,posvenda:'iGreen',kwh:100}]
-  };
+  var posVendaData = {};
+  var pvRawData = [{"uf": "AL", "conc": "EQUATORIAL", "fornecedora": "fit", "desconto": "8%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "AL", "conc": "EQUATORIAL", "fornecedora": "fit", "desconto": "10%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "AL", "conc": "EQUATORIAL", "fornecedora": "fit", "desconto": "12%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "AL", "conc": "EQUATORIAL", "fornecedora": "fit", "desconto": "14%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "BA", "conc": "COELBA", "fornecedora": "fit", "desconto": "8%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "BA", "conc": "COELBA", "fornecedora": "fit", "desconto": "10%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "BA", "conc": "COELBA", "fornecedora": "fit", "desconto": "12%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "BA", "conc": "COELBA", "fornecedora": "fit", "desconto": "14%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "BA", "conc": "COELBA", "fornecedora": "sunclick", "desconto": "8%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "BA", "conc": "COELBA", "fornecedora": "sunclick", "desconto": "10%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "BA", "conc": "COELBA", "fornecedora": "sunclick", "desconto": "12%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "BA", "conc": "COELBA", "fornecedora": "sunclick", "desconto": "14%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "CE", "conc": "ENEL", "fornecedora": "fit", "desconto": "10%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "CE", "conc": "ENEL", "fornecedora": "fit", "desconto": "14%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "CE", "conc": "ENEL", "fornecedora": "fit", "desconto": "18%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "CE", "conc": "ENEL", "fornecedora": "fit", "desconto": "20%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "CE", "conc": "ENEL", "fornecedora": "sunclick", "desconto": "10%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "CE", "conc": "ENEL", "fornecedora": "sunclick", "desconto": "14%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "CE", "conc": "ENEL", "fornecedora": "sunclick", "desconto": "18%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "CE", "conc": "ENEL", "fornecedora": "sunclick", "desconto": "20%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "ES", "conc": "EDP", "fornecedora": "sunclick", "desconto": "10%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "120", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "GO", "conc": "EQUATORIAL", "fornecedora": "fit", "desconto": "10%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "GO", "conc": "EQUATORIAL", "fornecedora": "fit", "desconto": "14%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "GO", "conc": "EQUATORIAL", "fornecedora": "fit", "desconto": "18%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "GO", "conc": "EQUATORIAL", "fornecedora": "fit", "desconto": "20%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "MA", "conc": "EQUATORIAL", "fornecedora": "sunclick", "desconto": "8%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "499.0", "tipo_bonus": "A", "injecao": "120", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "MA", "conc": "EQUATORIAL", "fornecedora": "sunclick", "desconto": "10%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "499.0", "tipo_bonus": "B", "injecao": "120", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "MA", "conc": "EQUATORIAL", "fornecedora": "gedisa", "desconto": "8%", "posvenda": "Fornecedora", "kwh": "500", "kwh_max": "—", "tipo_bonus": "A", "injecao": "120", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "MA", "conc": "EQUATORIAL", "fornecedora": "gedisa", "desconto": "10%", "posvenda": "Fornecedora", "kwh": "500", "kwh_max": "—", "tipo_bonus": "B", "injecao": "120", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "MA", "conc": "EQUATORIAL", "fornecedora": "gedisa", "desconto": "12%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "120", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "MA", "conc": "EQUATORIAL", "fornecedora": "gedisa", "desconto": "14%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "120", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "MG", "conc": "ENERGISA SUL SUDESTE", "fornecedora": "sunclick", "desconto": "12%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "120", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "MG", "conc": "ENERGISA SUL SUDESTE", "fornecedora": "sunclick", "desconto": "14%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "120", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "MG", "conc": "ENERGISA SUL SUDESTE", "fornecedora": "sunclick", "desconto": "8%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "120", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "MG", "conc": "ENERGISA SUL SUDESTE", "fornecedora": "sunclick", "desconto": "10%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "120", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "MG", "conc": "CEMIG-D", "fornecedora": "comerc", "desconto": "10%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "SIM"}, {"uf": "MG", "conc": "ENERGISA MINAS RIO", "fornecedora": "fit", "desconto": "8%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "MG", "conc": "ENERGISA MINAS RIO", "fornecedora": "fit", "desconto": "10%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "MG", "conc": "ENERGISA MINAS RIO", "fornecedora": "fit", "desconto": "12%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "MG", "conc": "ENERGISA MINAS RIO", "fornecedora": "fit", "desconto": "14%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "MG", "conc": "CPFL SANTA CRUZ", "fornecedora": "edp", "desconto": "8%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "MG", "conc": "CPFL SANTA CRUZ", "fornecedora": "edp", "desconto": "10%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "MG", "conc": "CPFL SANTA CRUZ", "fornecedora": "edp", "desconto": "12%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "MG", "conc": "CPFL SANTA CRUZ", "fornecedora": "edp", "desconto": "14%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "MG", "conc": "CEMIG-D", "fornecedora": "comerc", "desconto": "20%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "SIM"}, {"uf": "MG", "conc": "CEMIG-D", "fornecedora": "comerc", "desconto": "16%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "SIM"}, {"uf": "MG", "conc": "CEMIG-D", "fornecedora": "comerc", "desconto": "24%", "posvenda": "iGreen", "kwh": "5000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "SIM"}, {"uf": "MG", "conc": "CEMIG-D", "fornecedora": "comerc", "desconto": "28%", "posvenda": "iGreen", "kwh": "10000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "SIM"}, {"uf": "MS", "conc": "ENERGISA", "fornecedora": "fit", "desconto": "8%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "MS", "conc": "ELEKTRO", "fornecedora": "fit", "desconto": "8%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "MS", "conc": "ELEKTRO", "fornecedora": "fit", "desconto": "10%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "MS", "conc": "ELEKTRO", "fornecedora": "fit", "desconto": "12%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "MS", "conc": "ELEKTRO", "fornecedora": "fit", "desconto": "14%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "MS", "conc": "ENERGISA", "fornecedora": "fit", "desconto": "10%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "MS", "conc": "ENERGISA", "fornecedora": "fit", "desconto": "12%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "MS", "conc": "ENERGISA", "fornecedora": "fit", "desconto": "14%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "MT", "conc": "ENERGISA", "fornecedora": "bomfuturo", "desconto": "10%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "MT", "conc": "ENERGISA", "fornecedora": "bomfuturo", "desconto": "14%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "MT", "conc": "ENERGISA", "fornecedora": "bomfuturo", "desconto": "18%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "MT", "conc": "ENERGISA", "fornecedora": "bomfuturo", "desconto": "20%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "PA", "conc": "EQUATORIAL PA", "fornecedora": "origo", "desconto": "8%", "posvenda": "iGreen", "kwh": "350", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "PA", "conc": "EQUATORIAL PA", "fornecedora": "origo", "desconto": "10%", "posvenda": "iGreen", "kwh": "350", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "PA", "conc": "EQUATORIAL PA", "fornecedora": "origo", "desconto": "12%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "PA", "conc": "EQUATORIAL PA", "fornecedora": "origo", "desconto": "14%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "PB", "conc": "ENERGISA PB", "fornecedora": "solatio", "desconto": "8%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "PB", "conc": "ENERGISA PB", "fornecedora": "solatio", "desconto": "10%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "PB", "conc": "ENERGISA PB", "fornecedora": "solatio", "desconto": "12%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "PB", "conc": "ENERGISA PB", "fornecedora": "solatio", "desconto": "14%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "PE", "conc": "NEO ENERGIA", "fornecedora": "fit", "desconto": "8%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "PE", "conc": "NEO ENERGIA", "fornecedora": "fit", "desconto": "10%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "PE", "conc": "NEO ENERGIA", "fornecedora": "fit", "desconto": "12%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "PE", "conc": "NEO ENERGIA", "fornecedora": "fit", "desconto": "14%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "PI", "conc": "EQUATORIAL", "fornecedora": "fit", "desconto": "8%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "PI", "conc": "EQUATORIAL", "fornecedora": "fit", "desconto": "10%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "PI", "conc": "EQUATORIAL", "fornecedora": "fit", "desconto": "12%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "PI", "conc": "EQUATORIAL", "fornecedora": "fit", "desconto": "14%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "PR", "conc": "CPFL SANTA CRUZ", "fornecedora": "edp", "desconto": "8%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "PR", "conc": "CPFL SANTA CRUZ", "fornecedora": "edp", "desconto": "10%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "PR", "conc": "CPFL SANTA CRUZ", "fornecedora": "edp", "desconto": "12%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "PR", "conc": "CPFL SANTA CRUZ", "fornecedora": "edp", "desconto": "14%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "PR", "conc": "COPEL", "fornecedora": "fit", "desconto": "8%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "PR", "conc": "COPEL", "fornecedora": "fit", "desconto": "10%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "PR", "conc": "COPEL", "fornecedora": "fit", "desconto": "12%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "PR", "conc": "COPEL", "fornecedora": "fit", "desconto": "14%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "RJ", "conc": "ENERGISA MINAS RIO", "fornecedora": "fit", "desconto": "8%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "RJ", "conc": "ENERGISA MINAS RIO", "fornecedora": "fit", "desconto": "10%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "RJ", "conc": "ENERGISA MINAS RIO", "fornecedora": "fit", "desconto": "12%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "RJ", "conc": "ENERGISA MINAS RIO", "fornecedora": "fit", "desconto": "14%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "RJ", "conc": "ENEL", "fornecedora": "rzk", "desconto": "8%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "RJ", "conc": "ENEL", "fornecedora": "rzk", "desconto": "10%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "RJ", "conc": "ENEL", "fornecedora": "rzk", "desconto": "12%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "RJ", "conc": "ENEL", "fornecedora": "rzk", "desconto": "14%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "RN", "conc": "COSERN", "fornecedora": "fit", "desconto": "8%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "RN", "conc": "COSERN", "fornecedora": "fit", "desconto": "10%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "RN", "conc": "COSERN", "fornecedora": "fit", "desconto": "12%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "RN", "conc": "COSERN", "fornecedora": "fit", "desconto": "14%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "RS", "conc": "RGE", "fornecedora": "cotesa", "desconto": "8%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "120", "cancel": "120", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "RS", "conc": "RGE", "fornecedora": "cotesa", "desconto": "10%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "120", "cancel": "120", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "RS", "conc": "RGE", "fornecedora": "cotesa", "desconto": "12%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "120", "cancel": "120", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "RS", "conc": "RGE", "fornecedora": "cotesa", "desconto": "14%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "120", "cancel": "120", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "RS", "conc": "CEEE", "fornecedora": "sunclick", "desconto": "8%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "120", "cancel": "120", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "RS", "conc": "CEEE", "fornecedora": "sunclick", "desconto": "10%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "120", "cancel": "120", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "RS", "conc": "CEEE", "fornecedora": "sunclick", "desconto": "12%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "120", "cancel": "120", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "RS", "conc": "CEEE", "fornecedora": "sunclick", "desconto": "14%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "120", "cancel": "120", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "SC", "conc": "CELESC", "fornecedora": "fit", "desconto": "8%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "SC", "conc": "CELESC", "fornecedora": "fit", "desconto": "10%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "SC", "conc": "CELESC", "fornecedora": "fit", "desconto": "12%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "SC", "conc": "CELESC", "fornecedora": "fit", "desconto": "14%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "SE", "conc": "ENERGISA", "fornecedora": "sunclick", "desconto": "8%", "posvenda": "iGreen", "kwh": "350", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "SE", "conc": "ENERGISA", "fornecedora": "sunclick", "desconto": "10%", "posvenda": "iGreen", "kwh": "350", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "SE", "conc": "ENERGISA", "fornecedora": "sunclick", "desconto": "12%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "SE", "conc": "ENERGISA", "fornecedora": "sunclick", "desconto": "14%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "SP", "conc": "CPFL", "fornecedora": "fit", "desconto": "8%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "SP", "conc": "CPFL", "fornecedora": "fit", "desconto": "10%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "SP", "conc": "ELEKTRO", "fornecedora": "fit", "desconto": "8%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "SP", "conc": "ELEKTRO", "fornecedora": "fit", "desconto": "10%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "SP", "conc": "ELEKTRO", "fornecedora": "fit", "desconto": "12%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "SP", "conc": "ELEKTRO", "fornecedora": "fit", "desconto": "14%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "SP", "conc": "ENERGISA SUL SUDESTE", "fornecedora": "sunclick", "desconto": "14%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "120", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "SP", "conc": "ENERGISA SUL SUDESTE", "fornecedora": "sunclick", "desconto": "12%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "120", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "SP", "conc": "CPFL PIRATININGA", "fornecedora": "rzk", "desconto": "8%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "120", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "SP", "conc": "CPFL PIRATININGA", "fornecedora": "rzk", "desconto": "10%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "120", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "SP", "conc": "CPFL PIRATININGA", "fornecedora": "rzk", "desconto": "12%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "120", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "SP", "conc": "CPFL PIRATININGA", "fornecedora": "rzk", "desconto": "14%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "120", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "SP", "conc": "CPFL SANTA CRUZ", "fornecedora": "edp", "desconto": "8%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "SP", "conc": "CPFL SANTA CRUZ", "fornecedora": "edp", "desconto": "10%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "SP", "conc": "CPFL SANTA CRUZ", "fornecedora": "edp", "desconto": "12%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "SP", "conc": "CPFL SANTA CRUZ", "fornecedora": "edp", "desconto": "14%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "SP", "conc": "CPFL", "fornecedora": "fit", "desconto": "12%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "SP", "conc": "CPFL", "fornecedora": "fit", "desconto": "14%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "SIM", "conta_unica": "SIM"}, {"uf": "SP", "conc": "ENERGISA SUL SUDESTE", "fornecedora": "sunclick", "desconto": "8%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "120", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "SP", "conc": "ENERGISA SUL SUDESTE", "fornecedora": "sunclick", "desconto": "10%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "120", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "TO", "conc": "ENERGISA TOCANTINS", "fornecedora": "origo", "desconto": "8%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "TO", "conc": "ENERGISA TOCANTINS", "fornecedora": "origo", "desconto": "10%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "TO", "conc": "ENERGISA TOCANTINS", "fornecedora": "origo", "desconto": "12%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "TO", "conc": "ENERGISA TOCANTINS", "fornecedora": "origo", "desconto": "14%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "GO", "conc": "EQUATORIAL", "fornecedora": "origo", "desconto": "10%", "posvenda": "iGreen", "kwh": "150", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "180", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "GO", "conc": "EQUATORIAL", "fornecedora": "origo", "desconto": "14%", "posvenda": "iGreen", "kwh": "150", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "180", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "GO", "conc": "EQUATORIAL", "fornecedora": "origo", "desconto": "18%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "180", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "GO", "conc": "EQUATORIAL", "fornecedora": "origo", "desconto": "20%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "180", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "MS", "conc": "ENERGISA", "fornecedora": "sunclick", "desconto": "8%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "MS", "conc": "ENERGISA", "fornecedora": "sunclick", "desconto": "10%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "MS", "conc": "ENERGISA", "fornecedora": "sunclick", "desconto": "12%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "MS", "conc": "ENERGISA", "fornecedora": "sunclick", "desconto": "14%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "PE", "conc": "NEO ENERGIA", "fornecedora": "sunclick", "desconto": "8%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "PE", "conc": "NEO ENERGIA", "fornecedora": "sunclick", "desconto": "10%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "PE", "conc": "NEO ENERGIA", "fornecedora": "sunclick", "desconto": "12%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "PE", "conc": "NEO ENERGIA", "fornecedora": "sunclick", "desconto": "14%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "PR", "conc": "COPEL", "fornecedora": "igreen", "desconto": "8%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "PR", "conc": "COPEL", "fornecedora": "igreen", "desconto": "10%", "posvenda": "iGreen", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "PR", "conc": "COPEL", "fornecedora": "igreen", "desconto": "12%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "PR", "conc": "COPEL", "fornecedora": "igreen", "desconto": "14%", "posvenda": "iGreen", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "90", "cancel": "90", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "RS", "conc": "RGE", "fornecedora": "gedisa", "desconto": "8%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "A", "injecao": "120", "cancel": "120", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "RS", "conc": "RGE", "fornecedora": "gedisa", "desconto": "10%", "posvenda": "Fornecedora", "kwh": "100", "kwh_max": "—", "tipo_bonus": "B", "injecao": "120", "cancel": "120", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "RS", "conc": "RGE", "fornecedora": "gedisa", "desconto": "12%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "C", "injecao": "120", "cancel": "120", "troca": "NÃO", "conta_unica": "NÃO"}, {"uf": "RS", "conc": "RGE", "fornecedora": "gedisa", "desconto": "14%", "posvenda": "Fornecedora", "kwh": "1000", "kwh_max": "—", "tipo_bonus": "D", "injecao": "120", "cancel": "120", "troca": "NÃO", "conta_unica": "NÃO"}];
+
+  // Build posVendaData from pvRawData for backwards compatibility
+  pvRawData.forEach(function(r) {
+    if (!posVendaData[r.fornecedora]) posVendaData[r.fornecedora] = [];
+    posVendaData[r.fornecedora].push({uf:r.uf, conc:r.conc, desconto:parseInt(r.desconto)||0, posvenda:r.posvenda, kwh:parseInt(r.kwh)||0});
+  });
 
   var pvUnlocked = false;
   var pvCurrentFilter = 'todos';
+  var pvFilterUFVal = 'todos';
+  var pvFilterConcVal = 'todos';
   var pvSearchQuery = '';
 
   var pvForneLabels = {
     comerc:'COMERC', cotesa:'COTESA', edp:'EDP', fit:'FIT',
-    gedisa:'GEDISA', origo:'ORIGO', rzk:'RZK (THOPEN)', solatio:'SOLATIO', sunclick:'SUNCLICK'
+    gedisa:'GEDISA', origo:'ORIGO', rzk:'RZK (THOPEN)', solatio:'SOLATIO', sunclick:'SUNCLICK',
+    bomfuturo:'BOM FUTURO', igreen:'iGreen'
   };
 
   window.openPosVenda = function() {
@@ -3233,13 +3371,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   function getAllRows() {
-    var all = [];
-    Object.keys(posVendaData).forEach(function(key) {
-      posVendaData[key].forEach(function(r) {
-        all.push({uf:r.uf, conc:r.conc, desconto:r.desconto, posvenda:r.posvenda, kwh:r.kwh, fornecedora:key});
-      });
-    });
-    return all;
+    return pvRawData || [];
   }
 
   function norm(s) {
@@ -3299,7 +3431,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function renderCaptacaoAtual() {
     var allRows = getAllRows();
     var fornKeys = Object.keys(posVendaData);
-    var iGreenCount = allRows.filter(function(r){ return r.posvenda === 'iGreen'; }).length;
+    var iGreenCount = allRows.filter(function(r){ return r.posvenda === 'iGreen' || r.posvenda === 'I'; }).length;
     var fornCount = allRows.length - iGreenCount;
 
     // Build static shell (summary + search + filter) only if not yet rendered
@@ -3313,7 +3445,25 @@ document.addEventListener('DOMContentLoaded', function() {
         opts += '<option value="' + k + '">' + (pvForneLabels[k]||k.toUpperCase()) + '</option>';
       });
 
-      body.innerHTML = '<div id="pvCaptacaoShell">'
+      // Build UF options
+    var ufs = ['todos'].concat(
+      allRows.map(function(r){ return r.uf; })
+        .filter(function(v,i,a){ return v && v !== '—' && a.indexOf(v) === i; }).sort()
+    );
+    var ufOpts = ufs.map(function(u){
+      return '<option value="' + u + '">' + (u === 'todos' ? 'Todas as UFs' : u) + '</option>';
+    }).join('');
+
+    // Build distribuidora options
+    var concs = ['todos'].concat(
+      allRows.map(function(r){ return r.conc; })
+        .filter(function(v,i,a){ return v && v !== '—' && a.indexOf(v) === i; }).sort()
+    );
+    var concOpts = concs.map(function(c){
+      return '<option value="' + c + '">' + (c === 'todos' ? 'Todas as distribuidoras' : c) + '</option>';
+    }).join('');
+
+    body.innerHTML = '<div id="pvCaptacaoShell">'
         + '<div class="pv-summary">'
         + '<div class="pv-summary-card"><div class="pv-summary-label">Total de linhas</div><div class="pv-summary-val">' + allRows.length + '</div></div>'
         + '<div class="pv-summary-card"><div class="pv-summary-label">Pós Venda iGreen</div><div class="pv-summary-val" style="color:var(--green);">' + iGreenCount + '</div></div>'
@@ -3321,11 +3471,13 @@ document.addEventListener('DOMContentLoaded', function() {
         + '<div class="pv-summary-card"><div class="pv-summary-label">Fornecedoras</div><div class="pv-summary-val">' + fornKeys.length + '</div></div>'
         + '</div>'
         + '<div style="display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap;">'
-        + '<div class="pv-search-bar" style="flex:1;min-width:200px;margin-bottom:0;"><span class="pv-search-icon">🔍</span><input id="pvSearchIn" class="pv-search-in" type="text" placeholder="Pesquisar UF, distribuidora, fornecedora..." /></div>'
-        + '<select class="pv-filter-select" id="pvFilterSelect">' + opts + '</select>'
+        + '<div class="pv-search-bar" style="flex:1;min-width:180px;margin-bottom:0;"><span class="pv-search-icon">🔍</span><input id="pvSearchIn" class="pv-search-in" type="text" placeholder="Pesquisar..." /></div>'
+        + '<select class="pv-filter-select" id="pvFilterSelect" style="min-width:160px;">' + opts + '</select>'
+        + '<select class="pv-filter-select" id="pvFilterUF" style="min-width:110px;">' + ufOpts + '</select>'
+        + '<select class="pv-filter-select" id="pvFilterConc" style="min-width:180px;">' + concOpts + '</select>'
         + '</div>'
         + '<div class="pv-table-wrap"><table class="pv-table">'
-        + '<thead><tr><th>UF</th><th>Distribuidora</th><th>Fornecedora</th><th>Desconto</th><th>Pós Venda</th><th>kWh Mín.</th></tr></thead>'
+        + '<thead><tr><th>UF</th><th>Distribuidora</th><th>Fornecedora</th><th>Desconto</th><th>Tipo</th><th>kWh Mín.</th><th>kWh Máx.</th><th>Pós Venda</th><th>Injeção</th><th>Cancelamento</th><th>Troca</th><th>Conta Única</th></tr></thead>'
         + '<tbody id="pvTableBody"></tbody>'
         + '</table></div>'
         + '</div>';
@@ -3350,6 +3502,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var allRows = getAllRows();
     var rows = allRows;
     if (pvCurrentFilter !== 'todos') rows = rows.filter(function(r){ return r.fornecedora === pvCurrentFilter; });
+    if (pvFilterUFVal !== 'todos') rows = rows.filter(function(r){ return r.uf === pvFilterUFVal; });
+    if (pvFilterConcVal !== 'todos') rows = rows.filter(function(r){ return r.conc === pvFilterConcVal; });
     if (pvSearchQuery) {
       var q = norm(pvSearchQuery);
       rows = rows.filter(function(r){
@@ -3365,9 +3519,15 @@ document.addEventListener('DOMContentLoaded', function() {
         + '<td><span style="font-size:12px;font-weight:800;background:var(--surface2);border:1px solid var(--border2);border-radius:4px;padding:3px 9px;">' + r.uf + '</span></td>'
         + '<td>' + r.conc + '</td>'
         + '<td><span style="font-size:12px;font-weight:800;color:var(--green);background:var(--green-muted);border:1px solid var(--green-dim);border-radius:4px;padding:3px 9px;">' + (pvForneLabels[r.fornecedora]||r.fornecedora.toUpperCase()) + '</span></td>'
-        + '<td><span class="pv-desconto">' + r.desconto + '%</span></td>'
+        + '<td><span class="pv-desconto">' + r.desconto + '</span></td>'
+        + '<td style="color:var(--text-2);font-size:12px;">' + (r.tipo_bonus||'—') + '</td>'
+        + '<td><span class="pv-kwh">' + r.kwh + ' kWh</span></td>'
+        + '<td><span class="pv-kwh">' + (r.kwh_max !== '—' ? r.kwh_max + ' kWh' : '—') + '</span></td>'
         + '<td>' + pvBadge + '</td>'
-        + '<td><span class="pv-kwh">' + r.kwh.toLocaleString('pt-BR') + ' kWh</span></td>'
+        + '<td style="text-align:center;color:var(--text-2);">' + (r.injecao||'—') + '</td>'
+        + '<td style="text-align:center;color:var(--text-2);">' + (r.cancel||'—') + '</td>'
+        + '<td style="text-align:center;">' + (r.troca||'—') + '</td>'
+        + '<td style="text-align:center;">' + (r.conta_unica||'—') + '</td>'
         + '</tr>';
     }).join('');
 
@@ -3423,10 +3583,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var theadCols = rnColumns.map(function(c){ return '<th>' + c.label + '</th>'; }).join('');
 
+    // Build distribuidora options
+    var distribs = ['todos'].concat(
+      rnData.map(function(r){ return r.distrib; })
+        .filter(function(v,i,a){ return v && v !== '—' && v !== 'Distribuidora' && a.indexOf(v) === i; })
+        .sort()
+    );
+    var dOpts = distribs.map(function(d){
+      return '<option value="' + d + '"' + (rnFilterDistrib === d ? ' selected' : '') + '>' + (d === 'todos' ? 'Todas as distribuidoras' : d) + '</option>';
+    }).join('');
+
     body.innerHTML = '<div style="display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap;">'
-      + '<div class="pv-search-bar" style="flex:1;min-width:200px;margin-bottom:0;"><span class="pv-search-icon">🔍</span><input id="rnSearchIn" class="pv-search-in" type="text" placeholder="Pesquisar parceiro, distribuidora, UF..." /></div>'
+      + '<div class="pv-search-bar" style="flex:1;min-width:180px;margin-bottom:0;"><span class="pv-search-icon">🔍</span><input id="rnSearchIn" class="pv-search-in" type="text" placeholder="Pesquisar parceiro, distribuidora, UF..." /></div>'
       + '<select class="pv-filter-select" id="rnFilterParceiro" style="min-width:160px;">' + pOpts + '</select>'
       + '<select class="pv-filter-select" id="rnFilterUF" style="min-width:110px;">' + uOpts + '</select>'
+      + '<select class="pv-filter-select" id="rnFilterDistribEl" style="min-width:180px;">' + dOpts + '</select>'
       + '</div>'
       + '<div class="pv-table-wrap" style="overflow-x:auto;">'
       + '<table class="pv-table"><thead><tr>' + theadCols + '</tr></thead>'
@@ -3442,6 +3613,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var fu = document.getElementById('rnFilterUF');
     if (fu) fu.addEventListener('change', function(){ rnFilterUF = this.value; updateRnTable(); });
 
+    var fd = document.getElementById('rnFilterDistribEl');
+    if (fd) fd.addEventListener('change', function(){ rnFilterDistrib = this.value; updateRnTable(); });
+
     updateRnTable();
   }
 
@@ -3452,6 +3626,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var rows = rnData.filter(function(r){
       if (rnFilterParceiro !== 'todos' && r.parceiro !== rnFilterParceiro) return false;
       if (rnFilterUF !== 'todos' && r.uf !== rnFilterUF) return false;
+      if (rnFilterDistrib !== 'todos' && r.distrib !== rnFilterDistrib) return false;
       if (q && norm(Object.values(r).join(' ')).indexOf(q) === -1) return false;
       return true;
     });
@@ -3513,6 +3688,40 @@ document.addEventListener('DOMContentLoaded', function() {
     <span class="pv-modal-cancel" onclick="closePvModal()">Cancelar</span>
   </div>
 </div>
+
+
+<script>
+// ── Sidebar & Theme ────────────────────────────────────────────
+function toggleSidebar() {
+  var sidebar = document.querySelector('aside');
+  var main = document.querySelector('.main');
+  var btn = document.getElementById('sidebarToggle');
+  if (!sidebar || !main || !btn) return;
+  var isOpen = sidebar.offsetWidth > 50;
+  if (isOpen) {
+    sidebar.style.width = '0';
+    sidebar.style.overflow = 'hidden';
+    sidebar.style.minWidth = '0';
+    main.style.marginLeft = '8px';
+    btn.innerHTML = '&#8250;';
+    btn.style.left = '4px';
+  } else {
+    sidebar.style.width = '220px';
+    sidebar.style.overflow = '';
+    sidebar.style.minWidth = '';
+    main.style.marginLeft = '220px';
+    btn.innerHTML = '&#8249;';
+    btn.style.left = '208px';
+  }
+}
+
+function toggleTheme() {
+  var body = document.body;
+  var btn = document.getElementById('themeBtn');
+  body.classList.toggle('light-mode');
+  btn.textContent = body.classList.contains('light-mode') ? '🌙 Modo Escuro' : '☀️ Modo Claro';
+}
+</script>
 
 </body>
 </html>
