@@ -3477,7 +3477,7 @@ document.addEventListener('DOMContentLoaded', function() {
         + '<select class="pv-filter-select" id="pvFilterConc" style="min-width:180px;">' + concOpts + '</select>'
         + '</div>'
         + '<div class="pv-table-wrap"><table class="pv-table">'
-        + '<thead><tr><th>UF</th><th>Distribuidora</th><th>Fornecedora</th><th>Desconto</th><th>Tipo</th><th>kWh Mín.</th><th>kWh Máx.</th><th>Pós Venda</th><th>Injeção</th><th>Cancelamento</th><th>Troca</th><th>Conta Única</th></tr></thead>'
+        + '<thead><tr><th>UF</th><th>Distribuidora</th><th>Fornecedora</th><th>Desconto</th><th>Tipo</th><th>kWh Mín.</th><th>Pós Venda</th><th>Injeção</th><th>Cancelamento</th><th>Troca</th><th>Conta Única</th></tr></thead>'
         + '<tbody id="pvTableBody"></tbody>'
         + '</table></div>'
         + '</div>';
@@ -3522,7 +3522,6 @@ document.addEventListener('DOMContentLoaded', function() {
         + '<td><span class="pv-desconto">' + r.desconto + '</span></td>'
         + '<td style="color:var(--text-2);font-size:12px;">' + (r.tipo_bonus||'—') + '</td>'
         + '<td><span class="pv-kwh">' + r.kwh + ' kWh</span></td>'
-        + '<td><span class="pv-kwh">' + (r.kwh_max !== '—' ? r.kwh_max + ' kWh' : '—') + '</span></td>'
         + '<td>' + pvBadge + '</td>'
         + '<td style="text-align:center;color:var(--text-2);">' + (r.injecao||'—') + '</td>'
         + '<td style="text-align:center;color:var(--text-2);">' + (r.cancel||'—') + '</td>'
