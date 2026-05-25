@@ -2472,7 +2472,7 @@ function showPage(id) {
     gv: [{dist:'CEMIG', estado:'Minas Gerais', min:100}, {dist:'Energisa', estado:'Mato Grosso do Sul', min:100}, {dist:'Energisa', estado:'Mato Grosso', min:100}],
     solatio: [{dist:'Energisa', estado:'Paraíba', min:100}],
     cotesa: [{dist:'CELESC', estado:'Santa Catarina', min:100}, {dist:'RGE (Com troca de titularidade)', estado:'Rio Grande do Sul', min:100}, {dist:'RGE Rural (Sem troca de titularidade)', estado:'Rio Grande do Sul', min:100}, {dist:'CEEE', estado:'Rio Grande do Sul', min:100}],
-    gedisa: [{dist:'RGE', estado:'Rio Grande do Sul', min:300}, {dist:'Energisa Sul Sudeste', estado:'São Paulo', min:300}, {dist:'Equatorial', estado:'Maranhão', min:300}, {dist:'CEEE', estado:'Rio Grande do Sul', min:300}, {dist:'COPEL', estado:'Paraná', min:100}],
+    gedisa: [{dist:'RGE', estado:'Rio Grande do Sul', min:100}, {dist:'Energisa Sul Sudeste', estado:'São Paulo', min:300}, {dist:'Equatorial', estado:'Maranhão', min:300}, {dist:'CEEE', estado:'Rio Grande do Sul', min:300}, {dist:'COPEL', estado:'Paraná', min:100}],
     fit: [{dist:'Energisa Minas Rio', estado:'Minas Gerais', min:100}, {dist:'Energisa Minas Rio', estado:'Rio de Janeiro', min:100}, {dist:'Energisa', estado:'Mato Grosso do Sul', min:100}, {dist:'Energisa', estado:'Mato Grosso', min:100}, {dist:'Elektro', estado:'São Paulo', min:100}, {dist:'Equatorial', estado:'Goiás', min:100}, {dist:'Elektro', estado:'Mato Grosso do Sul', min:100}, {dist:'CPFL Paulista', estado:'São Paulo', min:100}, {dist:'Equatorial', estado:'Goiás', min:100}, {dist:'Equatorial', estado:'Alagoas', min:100}, {dist:'Equatorial', estado:'Piauí', min:100}, {dist:'Neoenergia Cosern', estado:'Rio Grande do Norte', min:100}, {dist:'ENEL', estado:'Ceará', min:100}, {dist:'Neoenergia', estado:'Pernambuco', min:100}, {dist:'COELBA (Neoenergia)', estado:'Bahia', min:100}, {dist:'CELESC', estado:'Santa Catarina', min:100}, {dist:'COPEL', estado:'Paraná', min:100}],
     sunclick: [{dist:'RGE', estado:'Rio Grande do Sul', min:100}, {dist:'ENEL CE', estado:'Ceará', min:100}, {dist:'EDP', estado:'Espírito Santo', min:100}, {dist:'Energisa Sul Sudeste', estado:'São Paulo / MG / PR', min:100}, {dist:'CEEE', estado:'Rio Grande do Sul', min:100}, {dist:'Neoenergia', estado:'Pernambuco', min:100}, {dist:'Energisa', estado:'Sergipe', min:350}, {dist:'CPFL Paulista', estado:'São Paulo', min:100}, {dist:'Equatorial', estado:'Maranhão', min:100}],
     bomfuturo: [{dist:'Energisa', estado:'Mato Grosso', min:100}],
@@ -3489,9 +3489,15 @@ document.addEventListener('DOMContentLoaded', function() {
       var filterSel = document.getElementById('pvFilterSelect');
       if (filterSel) filterSel.addEventListener('change', function(){ pvCurrentFilter = this.value; pvSearchQuery = ''; var si = document.getElementById('pvSearchIn'); if(si) si.value=''; updateCaptacaoTable(); });
     } else {
-      // Restore select value
+      // Restore all select values
       var sel = document.getElementById('pvFilterSelect');
       if (sel) sel.value = pvCurrentFilter;
+      var selUF = document.getElementById('pvFilterUF');
+      if (selUF) selUF.value = pvFilterUFVal;
+      var selConc = document.getElementById('pvFilterConc');
+      if (selConc) selConc.value = pvFilterConcVal;
+      var si = document.getElementById('pvSearchIn');
+      if (si) si.value = pvSearchQuery;
     }
 
     updateCaptacaoTable();
@@ -3507,7 +3513,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (pvSearchQuery) {
       var q = norm(pvSearchQuery);
       rows = rows.filter(function(r){
-        return norm(r.uf+' '+r.conc+' '+r.fornecedora+' '+r.posvenda+' '+r.desconto+' '+r.kwh).indexOf(q) !== -1;
+        var haystack = norm([r.uf, r.conc, r.fornecedora, pvForneLabels[r.fornecedora]||'', r.posvenda, r.desconto, r.kwh, r.tipo_bonus, r.troca, r.placas].join(' '));
+        return haystack.indexOf(q) !== -1;
       });
     }
 
