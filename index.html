@@ -2264,6 +2264,7 @@ function showPage(id) {
     ],
     igreen_forn: [
       {dist:'Copel', estado:'Paraná', instalacao:'Código de Instalação', cliente:'Código do Cliente', conta:'Não preencher', obs:'Mín. 100 kWh'},
+      {dist:'CEMIG', estado:'Minas Gerais', instalacao:'Número da UC', cliente:'Número da UC', conta:'Não preencher', obs:'Mín. 100 kWh'},
     ],
     edp: [
       {dist:'CPFL Santa Cruz', estado:'SP / PR / MG', instalacao:'Código da Instalação', cliente:'Código da Instalação', conta:'Não preencher', obs:''},
@@ -2510,7 +2511,7 @@ function showPage(id) {
     genial: [{dist:'ENEL', estado:'Rio de Janeiro', min:200}],
     reserva: [{dist:'Elektro', estado:'São Paulo', min:300}],
     moncarlo: [{dist:'EDP', estado:'Espírito Santo', min:200}],
-    igreen_forn: [{dist:'Copel', estado:'Paraná', min:100}],
+    igreen_forn: [{dist:'Copel', estado:'Paraná', min:100}, {dist:'CEMIG', estado:'Minas Gerais', min:100}],
     edp: [{dist:'CPFL Santa Cruz', estado:'SP / PR / MG', min:250}],
   };
 
@@ -2597,7 +2598,7 @@ function showSupplier(key) {
     genial: [['ENEL', 'Rio de Janeiro']],
     reserva: [['Elektro', 'São Paulo']],
     moncarlo: [['EDP', 'Espírito Santo']],
-    igreen_forn: [['Copel', 'Paraná']],
+    igreen_forn: [['Copel', 'Paraná'], ['CEMIG', 'Minas Gerais']],
     edp: [['CPFL Santa Cruz', 'SP / PR / MG']],
     bomfuturo: [['Energisa', 'Mato Grosso']]
   };
