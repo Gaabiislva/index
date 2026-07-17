@@ -1508,7 +1508,7 @@ tbody td:first-child {
             <td><span class="tag-ok">PODE</span></td>
             <td><span class="tag-deny">NÃO</span></td>
             <td><span class="tag-deny">NÃO</span></td>
-            <td><span class="tag-deny">NÃO</span></td>
+            <td><span class="tag-ok">PODE</span></td>
             <td><span class="tag-deny">NÃO</span></td>
             <td style="color:var(--amber);font-style:italic;">—</td>
           </tr>
@@ -2142,7 +2142,7 @@ const suppliers = {
     '⏱ Prazo de cancelamento: 120 dias. Prazo de injeção: 90 dias.',
     '🏢 Atendimento e pós-venda: iGreen.',
   ] },
-  igreen: { name:'IGREEN', mesRef:'≤ 3 meses anteriores ao atual', calculo:'3, 6 ou 12 meses', dadosPor:'Fatura, Documento Pessoal ou Receita Federal', icms:{val:'NÃO PODE',type:'deny'}, parcelamento:{val:'PODE',note:'Parcelamento, Empréstimo e Débito: todos aceitos',type:'ok'}, energiaInjetada:{val:'NÃO PODE',type:'deny'}, faturaCortada:'Sem restrição', documento:'Sem restrição', login:'Não precisa', extras:[] },
+  igreen: { name:'IGREEN', mesRef:'≤ 3 meses anteriores ao atual', calculo:'3, 6 ou 12 meses', dadosPor:'Fatura, Documento Pessoal ou Receita Federal', icms:{val:'PODE',type:'ok'}, parcelamento:{val:'PODE',note:'Parcelamento, Empréstimo e Débito: todos aceitos',type:'ok'}, energiaInjetada:{val:'NÃO PODE',type:'deny'}, faturaCortada:'Sem restrição', documento:'Sem restrição', login:'Não precisa', extras:[] },
   edp: { name:'EDP', mesRef:'≤ 3 meses (contando com o atual)', calculo:'6 meses', dadosPor:'Fatura', icms:{val:'NÃO PODE',type:'deny'}, parcelamento:{val:'COND.',note:'Débito em aberto: NÃO (aceita com comprovante de pagamento) / Parcelamento e Empréstimo: PODE',type:'cond'}, energiaInjetada:{val:'NÃO PODE',type:'deny'}, faturaCortada:'Sem restrição', documento:'Completo (frente e verso). Recusar: preto e branco, muito antigos, foto de criança', login:'Exige login e senha (obrigatório). Validar se instalação está cadastrada no site da distribuidora.', extras:[
     '⚡ Energia Reativa: ACEITA.',
     '🔁 Troca de instalação: reemitir se número diferente da fatura. Não reemitir se instalação = número do cliente ou diferença for apenas zeros à esquerda.',
