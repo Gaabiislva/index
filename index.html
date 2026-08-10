@@ -2652,6 +2652,25 @@ function showSupplier(key) {
 
   const nrFields = nonReqData[key];
   let nonReqBlock = '';
+  // ── Campos Obrigatórios ────────────────────────────────
+  var obrigLines = ['Todos os campos obrigatórios'];
+  // Exceções por fornecedora/contexto
+  if (key === 'comerc') {
+    obrigLines.push('⚠ CEMIG MG: Número do Cliente — NÃO preencher');
+  }
+  if (key !== 'edp') {
+    obrigLines.push('⚠ Login e Senha — preencher apenas na fornecedora EDP');
+  }
+  obrigLines.push('⚠ RG — nunca preencher em nenhuma fornecedora');
+  var obrigBlock = '<div class="d-card full" style="border-color:var(--green-dim);background:var(--green-muted);margin-top:4px;">'
+    + '<div class="d-card-label" style="color:var(--green);">Campos Obrigatórios no BackOffice</div>'
+    + '<div style="margin-top:8px;">'
+    + obrigLines.map(function(l) {
+        var isWarn = l.startsWith('⚠');
+        return '<div style="font-size:12px;color:' + (isWarn ? 'var(--amber)' : 'var(--text-1)') + ';padding:3px 0;">' + l + '</div>';
+      }).join('')
+    + '</div></div>';
+
   var oscilacaoBlock = buildOscilacaoBlock(key);
   var mesReferenciaBlock = buildMesReferenciaBlock(key);
 
@@ -2693,6 +2712,7 @@ function showSupplier(key) {
     + mesReferenciaBlock
     + regionBlock
     + oscilacaoBlock
+    + obrigBlock
     + nonReqBlock
     + '<div class="d-card full" style="background:var(--red-muted);border-color:var(--border);"><div class="d-card-label" style="color:#ff4444">Reprovação · válida para esta fornecedora</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px;font-size:11px;color:var(--text-2);">' + buildReproBlock(key) + '</div>';
 }
