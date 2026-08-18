@@ -2120,7 +2120,7 @@ const suppliers = {
     '🏢 Atendimento e pós-venda: realizados pela iGreen.',
     '📊 Campos de rateio e vencimento dos boletos: não enviado.',
   ] },
-  reserva: { name:'RESERVA', mesRef:'≤ 4 meses anteriores ao atual', calculo:'12 meses', dadosPor:'Documento Pessoal (titular) + Fatura (endereço) + Cartão CNPJ (Razão Social PJ)', icms:{val:'PODE',type:'ok'}, parcelamento:{val:'NÃO PODE',note:'Débito em aberto, parcelamento e empréstimo: não permite. Não especificado se aceita comprovante.',type:'deny'}, energiaInjetada:{val:'COND.',note:'Não aceita energia injetada, mas aceita clientes com placa solar',type:'cond'}, faturaCortada:'Deve estar completa', documento:'Sem manchas. Aceita: print, xerox, CPF da Receita Federal, vencido, apenas frente', login:'Não precisa', extras:[
+  reserva: { name:'RESERVA', mesRef:'≤ 2 meses anteriores ao atual', calculo:'12 meses', dadosPor:'Documento Pessoal (titular) + Fatura (endereço) + Cartão CNPJ (Razão Social PJ)', icms:{val:'PODE',type:'ok'}, parcelamento:{val:'NÃO PODE',note:'Débito em aberto, parcelamento e empréstimo: não permite. Não especificado se aceita comprovante.',type:'deny'}, energiaInjetada:{val:'COND.',note:'Não aceita energia injetada, mas aceita clientes com placa solar',type:'cond'}, faturaCortada:'Deve estar completa', documento:'Sem manchas. Aceita: print, xerox, CPF da Receita Federal, vencido, apenas frente', login:'Não precisa', extras:[
     '☀ Clientes com placa solar (geração própria): ACEITA. Energia Ativa Injetada na fatura: NÃO ACEITA.',
     '📋 Campos de rateio obrigatórios: Código da unidade, Documento (CPF/CNPJ), Endereço da conta de luz, Consumo médio.',
     '💰 Desconto: 10% para o cliente.',
@@ -2213,6 +2213,8 @@ function showPage(id) {
       {dist:'RGE', estado:'Rio Grande do Sul', instalacao:'Número da UC', cliente:'Número da UC', conta:'Não preencher', obs:'Mín. 100 kWh'},
       {dist:'EDP', estado:'Espírito Santo', instalacao:'Número da UC', cliente:'Número da UC', conta:'Não preencher', obs:'Mín. 100 kWh'},
       {dist:'Energisa Sul Sudeste', estado:'MG / SP', instalacao:'Código da Instalação', cliente:'Código do Cliente', conta:'Não preencher', obs:'Mín. 100 kWh'},
+      {dist:'COPEL', estado:'Santa Catarina', instalacao:'Unidade Consumidora', cliente:'Unidade Consumidora', conta:'Não preencher', obs:'Mín. 100 kWh'},
+      {dist:'Energisa Sul Sudeste', estado:'Paraná', instalacao:'Código da Instalação', cliente:'Código do Cliente', conta:'Não preencher', obs:'Mín. 100 kWh'},
       {dist:'Energisa Minas Rio', estado:'MG / RJ', instalacao:'Código de Instalação', cliente:'Código do Cliente', conta:'Código do Cliente', obs:''},
       {dist:'Elektro', estado:'São Paulo', instalacao:'Código de Instalação', cliente:'Código do Cliente', conta:'Código do Cliente', obs:''},
       {dist:'Elektro', estado:'Mato Grosso do Sul', instalacao:'Número da Instalação', cliente:'Número da Instalação', conta:'Não preencher', obs:'Mín. 100 kWh'},
@@ -2279,6 +2281,8 @@ function showPage(id) {
       {dist:'CPFL Paulista', estado:'São Paulo', instalacao:'Código da Instalação', cliente:'Código da Instalação', conta:'Não preencher', obs:'Mín. 100 kWh'},
       {dist:'ENEL', estado:'Ceará', instalacao:'Instalação', cliente:'Número do Cliente', conta:'Não preencher', obs:'Mín. 100 kWh'},
       {dist:'Equatorial', estado:'Piauí', instalacao:'Unidade Consumidora', cliente:'Parceiro de Negócio', conta:'Não preencher', obs:'Mín. 100 kWh'},
+      {dist:'CELESC', estado:'Paraná', instalacao:'Código de Instalação', cliente:'Código do Cliente', conta:'Não preencher', obs:'Mín. 100 kWh'},
+      {dist:'COPEL', estado:'Santa Catarina', instalacao:'Unidade Consumidora', cliente:'Unidade Consumidora', conta:'Não preencher', obs:'Mín. 100 kWh'},
     ],
     edp: [
       {dist:'CPFL Santa Cruz', estado:'SP / PR / MG', instalacao:'Código da Instalação', cliente:'Código da Instalação', conta:'Não preencher', obs:''},
@@ -2492,7 +2496,7 @@ function showPage(id) {
     solatio: [{dist:'Energisa', estado:'Paraíba', min:100}],
     cotesa: [{dist:'CELESC', estado:'Santa Catarina', min:100}, {dist:'RGE (Com troca de titularidade)', estado:'Rio Grande do Sul', min:100}, {dist:'RGE Rural (Sem troca de titularidade)', estado:'Rio Grande do Sul', min:100}, {dist:'CEEE', estado:'Rio Grande do Sul', min:100}],
     gedisa: [{dist:'RGE', estado:'Rio Grande do Sul', min:100}, {dist:'Energisa Sul Sudeste', estado:'São Paulo', min:300}, {dist:'Equatorial', estado:'Maranhão', min:300}, {dist:'CEEE', estado:'Rio Grande do Sul', min:300}, {dist:'COPEL', estado:'Paraná', min:100}],
-    fit: [{dist:'RGE', estado:'Rio Grande do Sul', min:100}, {dist:'EDP', estado:'Espírito Santo', min:100}, {dist:'Energisa Sul Sudeste', estado:'MG / SP', min:100}, {dist:'Energisa Minas Rio', estado:'Minas Gerais', min:100}, {dist:'Energisa Minas Rio', estado:'Rio de Janeiro', min:100}, {dist:'Energisa', estado:'Mato Grosso do Sul', min:100}, {dist:'Energisa', estado:'Mato Grosso', min:100}, {dist:'Elektro', estado:'São Paulo', min:100}, {dist:'Equatorial', estado:'Goiás', min:100}, {dist:'Elektro', estado:'Mato Grosso do Sul', min:100}, {dist:'CPFL Paulista', estado:'São Paulo', min:100}, {dist:'Equatorial', estado:'Goiás', min:100}, {dist:'Equatorial', estado:'Alagoas', min:100}, {dist:'Equatorial', estado:'Piauí', min:100}, {dist:'Neoenergia Cosern', estado:'Rio Grande do Norte', min:100}, {dist:'ENEL', estado:'Ceará', min:100}, {dist:'Neoenergia', estado:'Pernambuco', min:100}, {dist:'COELBA (Neoenergia)', estado:'Bahia', min:100}, {dist:'CELESC', estado:'Santa Catarina', min:100}, {dist:'COPEL', estado:'Paraná', min:100}],
+    fit: [{dist:'RGE', estado:'Rio Grande do Sul', min:100}, {dist:'EDP', estado:'Espírito Santo', min:100}, {dist:'Energisa Sul Sudeste', estado:'MG / SP', min:100}, {dist:'COPEL', estado:'Santa Catarina', min:100}, {dist:'Energisa Sul Sudeste', estado:'Paraná', min:100}, {dist:'Energisa Minas Rio', estado:'Minas Gerais', min:100}, {dist:'Energisa Minas Rio', estado:'Rio de Janeiro', min:100}, {dist:'Energisa', estado:'Mato Grosso do Sul', min:100}, {dist:'Energisa', estado:'Mato Grosso', min:100}, {dist:'Elektro', estado:'São Paulo', min:100}, {dist:'Equatorial', estado:'Goiás', min:100}, {dist:'Elektro', estado:'Mato Grosso do Sul', min:100}, {dist:'CPFL Paulista', estado:'São Paulo', min:100}, {dist:'Equatorial', estado:'Goiás', min:100}, {dist:'Equatorial', estado:'Alagoas', min:100}, {dist:'Equatorial', estado:'Piauí', min:100}, {dist:'Neoenergia Cosern', estado:'Rio Grande do Norte', min:100}, {dist:'ENEL', estado:'Ceará', min:100}, {dist:'Neoenergia', estado:'Pernambuco', min:100}, {dist:'COELBA (Neoenergia)', estado:'Bahia', min:100}, {dist:'CELESC', estado:'Santa Catarina', min:100}, {dist:'COPEL', estado:'Paraná', min:100}],
     sunclick: [{dist:'RGE', estado:'Rio Grande do Sul', min:100}, {dist:'ENEL CE', estado:'Ceará', min:100}, {dist:'EDP', estado:'Espírito Santo', min:100}, {dist:'Energisa Sul Sudeste', estado:'São Paulo / MG / PR', min:100}, {dist:'CEEE', estado:'Rio Grande do Sul', min:100}, {dist:'Neoenergia', estado:'Pernambuco', min:100}, {dist:'Energisa', estado:'Sergipe', min:350}, {dist:'CPFL Paulista', estado:'São Paulo', min:100}, {dist:'Equatorial', estado:'Maranhão', min:100}, {dist:'Energisa', estado:'Mato Grosso do Sul', min:100}],
     bomfuturo: [{dist:'Energisa', estado:'Mato Grosso', min:100}],
     origo: [{dist:'COSERN', estado:'Rio Grande do Norte', min:150}, {dist:'Equatorial', estado:'Goiás', min:150}, {dist:'COELBA (Neoenergia)', estado:'Bahia', min:150}, {dist:'Equatorial', estado:'Pará', min:150}, {dist:'Energisa', estado:'Tocantins', min:150}],
@@ -2500,7 +2504,7 @@ function showPage(id) {
     genial: [{dist:'ENEL', estado:'Rio de Janeiro', min:300}],
     reserva: [{dist:'Elektro', estado:'Mato Grosso do Sul', min:100}, {dist:'Elektro', estado:'São Paulo', min:100}],
     moncarlo: [{dist:'EDP', estado:'Espírito Santo', min:200}],
-    igreen: [{dist:'Copel', estado:'Paraná', min:100}, {dist:'CEMIG', estado:'Minas Gerais', min:100}, {dist:'Equatorial', estado:'Goiás', min:100}, {dist:'CELESC', estado:'Santa Catarina', min:100}, {dist:'EDP', estado:'Espírito Santo', min:100}, {dist:'Energisa', estado:'Mato Grosso do Sul', min:100}, {dist:'Energisa', estado:'Mato Grosso', min:100}, {dist:'CPFL Paulista', estado:'São Paulo', min:100}, {dist:'ENEL', estado:'Ceará', min:100}, {dist:'Equatorial', estado:'Piauí', min:100}],
+    igreen: [{dist:'Copel', estado:'Paraná', min:100}, {dist:'CEMIG', estado:'Minas Gerais', min:100}, {dist:'Equatorial', estado:'Goiás', min:100}, {dist:'CELESC', estado:'Santa Catarina', min:100}, {dist:'EDP', estado:'Espírito Santo', min:100}, {dist:'Energisa', estado:'Mato Grosso do Sul', min:100}, {dist:'Energisa', estado:'Mato Grosso', min:100}, {dist:'CPFL Paulista', estado:'São Paulo', min:100}, {dist:'ENEL', estado:'Ceará', min:100}, {dist:'Equatorial', estado:'Piauí', min:100}, {dist:'CELESC', estado:'Paraná', min:100}, {dist:'COPEL', estado:'Santa Catarina', min:100}],
     edp: [{dist:'CPFL Santa Cruz', estado:'SP / PR / MG', min:250}],
   };
 
@@ -2576,7 +2580,7 @@ function showSupplier(key) {
     solatio: [['Energisa', 'Paraíba']],
     cotesa: [['CELESC', 'Santa Catarina'], ['RGE', 'Rio Grande do Sul (Rural)'], ['CEEE', 'Rio Grande do Sul']],
     gedisa: [['RGE', 'Rio Grande do Sul'], ['Energisa Sul Sudeste', 'São Paulo, Minas Gerais e Paraná'], ['Equatorial', 'Maranhão'], ['CEEE', 'Rio Grande do Sul'], ['COPEL', 'Paraná']],
-    fit: [['RGE', 'Rio Grande do Sul'], ['EDP', 'Espírito Santo'], ['Energisa Sul Sudeste', 'MG / SP'], ['Energisa Minas Rio', 'Minas Gerais e Rio de Janeiro'], ['Elektro', 'São Paulo'], ['Elektro', 'Mato Grosso do Sul'], ['CPFL Paulista', 'São Paulo'], ['Equatorial', 'Goiás'], ['Energisa', 'Mato Grosso'], ['Energisa', 'Mato Grosso do Sul'], ['Equatorial', 'Alagoas'], ['ENEL', 'Ceará'], ['Neoenergia', 'Pernambuco'], ['Neoenergia Cosern', 'Rio Grande do Norte'], ['Equatorial', 'Piauí'], ['COELBA (Neoenergia)', 'Bahia'], ['CELESC', 'Santa Catarina'], ['COPEL', 'Paraná']],
+    fit: [['RGE', 'Rio Grande do Sul'], ['EDP', 'Espírito Santo'], ['Energisa Sul Sudeste', 'MG / SP'], ['COPEL', 'Santa Catarina'], ['Energisa Sul Sudeste', 'Paraná'], ['Energisa Minas Rio', 'Minas Gerais e Rio de Janeiro'], ['Elektro', 'São Paulo'], ['Elektro', 'Mato Grosso do Sul'], ['CPFL Paulista', 'São Paulo'], ['Equatorial', 'Goiás'], ['Energisa', 'Mato Grosso'], ['Energisa', 'Mato Grosso do Sul'], ['Equatorial', 'Alagoas'], ['ENEL', 'Ceará'], ['Neoenergia', 'Pernambuco'], ['Neoenergia Cosern', 'Rio Grande do Norte'], ['Equatorial', 'Piauí'], ['COELBA (Neoenergia)', 'Bahia'], ['CELESC', 'Santa Catarina'], ['COPEL', 'Paraná']],
     sunclick: [['RGE', 'Rio Grande do Sul'], ['ENEL CE', 'Ceará'], ['EDP', 'Espírito Santo'], ['Energisa Sul Sudeste', 'São Paulo, Minas Gerais e Paraná'], ['CEEE', 'Rio Grande do Sul'], ['Neoenergia', 'Pernambuco'], ['Energisa', 'Sergipe'], ['CPFL Paulista', 'São Paulo'], ['Equatorial', 'Maranhão'], ['Energisa', 'Mato Grosso do Sul'], ['COELBA (Neoenergia)', 'Bahia']],
     origo: [['COSERN', 'Rio Grande do Norte'], ['Equatorial', 'Goiás'], ['COELBA (Neoenergia)', 'Bahia'], ['Equatorial', 'Pará'], ['Energisa', 'Tocantins']],
     origo: [['COSERN', 'Rio Grande do Norte'], ['Equatorial', 'Goiás'], ['COELBA (Neoenergia)', 'Bahia'], ['Equatorial', 'Pará'], ['Energisa', 'Tocantins']],
@@ -2587,7 +2591,7 @@ function showSupplier(key) {
     genial: [['ENEL', 'Rio de Janeiro']],
     reserva: [['Elektro', 'Mato Grosso do Sul'], ['Elektro', 'São Paulo']],
     moncarlo: [['EDP', 'Espírito Santo']],
-    igreen: [['Copel', 'Paraná'], ['CEMIG', 'Minas Gerais'], ['Equatorial', 'Goiás'], ['CELESC', 'Santa Catarina'], ['EDP', 'Espírito Santo'], ['Energisa', 'Mato Grosso do Sul'], ['Energisa', 'Mato Grosso'], ['CPFL Paulista', 'São Paulo'], ['ENEL', 'Ceará'], ['Equatorial', 'Piauí']],
+    igreen: [['Copel', 'Paraná'], ['CEMIG', 'Minas Gerais'], ['Equatorial', 'Goiás'], ['CELESC', 'Santa Catarina'], ['EDP', 'Espírito Santo'], ['Energisa', 'Mato Grosso do Sul'], ['Energisa', 'Mato Grosso'], ['CPFL Paulista', 'São Paulo'], ['ENEL', 'Ceará'], ['Equatorial', 'Piauí'], ['CELESC', 'Paraná'], ['COPEL', 'Santa Catarina']],
     edp: [['CPFL Santa Cruz', 'SP / PR / MG']],
     bomfuturo: [['Energisa', 'Mato Grosso']]
   };
