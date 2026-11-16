@@ -1004,6 +1004,70 @@ tbody td:first-child {
   .fill-obs { font-size: 10px; font-weight: 400; color: var(--amber); margin-top: 2px; }
   .fill-yes { color: var(--green); }
   .fill-no { color: #d46b6b; }
+
+  /* ── Biblioteca de Scripts ── */
+  .bib-wrap { max-width: 920px; margin: 0 auto; }
+  .bib-banner { background: linear-gradient(135deg, #0e7a3e 0%, #16a34a 100%); border-radius: 14px; padding: 22px 24px 26px; color: #fff; }
+  .bib-brand { display: flex; align-items: center; gap: 12px; }
+  .bib-logo { width: 44px; height: 44px; border-radius: 12px; background: #fff; color: #16a34a; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .bib-brand-title { font-weight: 800; font-size: 16px; }
+  .bib-brand-sub { font-size: 12px; opacity: 0.85; margin-top: 2px; }
+  .bib-hello { font-size: 22px; font-weight: 800; margin: 20px 0 12px; }
+  .bib-search { display: flex; align-items: center; gap: 10px; background: #fff; border-radius: 12px; padding: 12px 14px; color: #6b7280; }
+  .bib-search input { border: 0; outline: 0; flex: 1; font-size: 14px; background: transparent; color: #111827; font-family: inherit; min-width: 0; }
+  .bib-section-label { font-size: 13px; font-weight: 700; color: var(--text-2); margin: 24px 0 12px; }
+  .bib-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .bib-grid.bib-grid-temas { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+  .bib-card { display: block; width: 100%; text-align: left; font-family: inherit; background: var(--surface); border: 1px solid var(--border2); border-radius: 12px; padding: 18px; cursor: pointer; color: var(--text-1); transition: border-color 0.15s, transform 0.15s; }
+  .bib-card:hover { border-color: var(--green-dim); transform: translateY(-1px); }
+  .bib-ico { color: var(--green); margin-bottom: 12px; line-height: 0; }
+  .bib-card-title { font-weight: 700; font-size: 14px; color: var(--text-1); }
+  .bib-card-sub { font-size: 11px; color: var(--text-3); margin-top: 4px; line-height: 1.5; }
+  .bib-chip { display: inline-block; font-size: 9px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: var(--green); background: var(--green-muted); border: 1px solid var(--green-dim); border-radius: 4px; padding: 1px 6px; margin-top: 10px; }
+  .bib-link { background: none; border: 0; padding: 0; color: var(--green); font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer; margin-bottom: 14px; }
+  .bib-cat-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .bib-cat-head .bib-ico { margin: 0; }
+  .bib-cat-title { font-size: 20px; font-weight: 800; color: var(--text-1); }
+  .bib-empty { background: var(--surface); border: 1px dashed var(--border2); border-radius: 12px; padding: 28px; text-align: center; color: var(--text-3); font-size: 13px; line-height: 1.6; }
+  .bib-script { background: var(--surface); border: 1px solid var(--border2); border-radius: 12px; padding: 20px; }
+  .bib-script pre { white-space: pre-wrap; word-wrap: break-word; font-family: inherit; font-size: 13px; line-height: 1.7; color: var(--text-1); background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 14px 0; }
+  .bib-btn { background: var(--green); color: #fff; border: 0; border-radius: 8px; padding: 9px 16px; font-family: inherit; font-size: 12px; font-weight: 700; cursor: pointer; }
+  .bib-back { background: var(--surface2); border: 1px solid var(--border2); color: var(--text-2); border-radius: 8px; padding: 6px 12px; font-family: inherit; font-size: 12px; font-weight: 700; cursor: pointer; white-space: nowrap; }
+  .bib-back:hover { border-color: var(--green-dim); color: var(--green); }
+
+  /* ── Biblioteca: guias (conteúdo estruturado) ── */
+  .bib-doc { background: var(--surface); border: 1px solid var(--border2); border-radius: 12px; padding: 22px; }
+  .bib-sec { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--border); }
+  .bib-sec:first-of-type { border-top: 0; padding-top: 0; margin-top: 14px; }
+  .bib-sec-title { font-size: 15px; font-weight: 800; color: var(--green); margin: 0 0 8px; }
+  .bib-sec-text { font-size: 13px; line-height: 1.7; color: var(--text-2); margin: 0 0 10px; }
+  .bib-code { background: var(--surface2); border: 1px solid var(--border); border-left: 3px solid var(--green-dim); border-radius: 8px; padding: 10px 14px; margin: 8px 0; }
+  .bib-code-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-3); margin-bottom: 4px; }
+  .bib-code-text { font-size: 13px; font-weight: 600; color: var(--text-1); word-break: break-word; }
+  .bib-list { list-style: none; margin: 8px 0; padding: 0; }
+  .bib-list li { display: flex; gap: 10px; font-size: 13px; line-height: 1.6; color: var(--text-2); padding: 5px 0; }
+  .bib-list li strong { color: var(--text-1); }
+  .bib-mark { color: var(--green); font-weight: 800; flex-shrink: 0; }
+  .bib-mini-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin: 10px 0; }
+  .bib-mini { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 14px; }
+  .bib-mini-title { font-size: 13px; font-weight: 800; color: var(--text-1); margin-bottom: 6px; }
+  .bib-mini-text { font-size: 12px; line-height: 1.6; color: var(--text-2); }
+  .bib-mini-ex { font-size: 11px; line-height: 1.5; color: var(--text-3); margin-top: 8px; }
+  .bib-chip-inline { margin: 0 0 0 8px; vertical-align: middle; }
+  .bib-aviso { font-size: 12px; line-height: 1.6; color: var(--amber); background: var(--amber-muted); border-left: 3px solid #8a6020; border-radius: 6px; padding: 10px 14px; margin-top: 12px; }
+
+  /* ── Biblioteca: tabelas, etiquetas e listas dos guias ── */
+  .bib-li-body { min-width: 0; }
+  .bib-li-sub { font-size: 11px; color: var(--text-3); margin-top: 2px; line-height: 1.5; }
+  .bib-chip-warn { color: var(--amber); background: var(--amber-muted); border-color: #8a6020; }
+  .bib-mini-ol { margin: 8px 0 0; padding-left: 20px; font-size: 12px; line-height: 1.8; color: var(--text-2); }
+  .bib-table-wrap { overflow-x: auto; margin: 10px 0; border: 1px solid var(--border); border-radius: 10px; }
+  .bib-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .bib-table th { text-align: left; background: var(--surface2); color: var(--text-3); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; padding: 9px 12px; }
+  .bib-table td { padding: 10px 12px; border-top: 1px solid var(--border); color: var(--text-2); line-height: 1.6; vertical-align: top; }
+  .bib-table td strong { color: var(--text-1); }
+  .bib-table td:nth-child(2) { color: var(--text-1); font-weight: 700; white-space: nowrap; }
+  .bib-col-id { color: var(--green) !important; font-weight: 800; width: 56px; text-align: center; }
 </style>
 </head>
 <body>
@@ -1021,32 +1085,7 @@ tbody td:first-child {
   </div>
 
   <nav class="sidebar-section">
-    <div class="sidebar-label">Visões</div>
-
-    <div class="nav-item" onclick="window.open('https://gaabiislva.github.io/Jornada-Setor-de-Contratos/','_blank')"><div class="nav-dot"></div> Jornada do Contrato ↗</div>
-    <div class="nav-item" onclick="window.open('https://gaabiislva.github.io/Central-de-leitura-das-faturas/','_blank')"><div class="nav-dot"></div> Leitura de Faturas ↗</div>
-    <div class="nav-item" onclick="showPage('comparison')">
-      <div class="nav-dot"></div> Comparativo
-    </div>
-
-    <div class="nav-item" onclick="showPage('docs')">
-      <div class="nav-dot"></div> Documentação
-    </div>
-    <div class="nav-item" onclick="showPage('devolucoes')">
-      <div class="nav-dot"></div> Devolutivas / Reprovações
-    </div>
-    <div class="nav-item" onclick="showPage('infopj')">
-      <div class="nav-dot"></div> Informações PJ
-    </div>
-    <div class="nav-item" onclick="showPage('infofatura')">
-      <div class="nav-dot"></div> Informações de Faturas
-    </div>
-    <div class="nav-item" onclick="showPage('calculadora')">
-      <div class="nav-dot"></div> Calculadora
-    </div>
-    <div class="nav-item" onclick="showPage('sumario')">
-      <div class="nav-dot"></div> Sumário de Dúvidas
-    </div>
+    <div class="nav-item" id="nav-biblioteca" onclick="showPage('biblioteca')" style="font-weight:700;"><div class="nav-dot"></div> Biblioteca de Scripts</div>
   </nav>
 
   <nav class="sidebar-section">
@@ -1106,7 +1145,10 @@ tbody td:first-child {
 
   <!-- TOP BAR -->
   <div class="topbar">
-    <div class="topbar-title" id="page-title">Visão Geral · Fornecedoras</div>
+    <div style="display:flex;align-items:center;gap:12px;min-width:0;">
+      <button type="button" class="bib-back" id="bibBackBtn" onclick="bibVoltar()" style="display:none;">← Biblioteca de Scripts</button>
+      <div class="topbar-title" id="page-title">Visão Geral · Fornecedoras</div>
+    </div>
     <div style="display:flex; align-items:center; gap:12px;">
       <div class="topbar-meta">
         <span>Contratos · iGreen</span>
@@ -1114,6 +1156,11 @@ tbody td:first-child {
       </div>
       <div class="version-tag">v1.0</div>
     </div>
+  </div>
+
+  <!-- ─── PAGE: BIBLIOTECA DE SCRIPTS ─── -->
+  <div class="content" id="page-biblioteca">
+    <div class="bib-wrap" id="bibRoot"></div>
   </div>
 
   <!-- ─── PAGE: OVERVIEW ─── -->
@@ -2038,6 +2085,7 @@ function showPage(id) {
     jornada: 'Jornada do Contrato',
     infofatura: 'Informações de Faturas',
     calculadora: 'Sistema iGreen · Calculadoras de Energia',
+    biblioteca: 'Biblioteca de Scripts · Central de apoio operacional',
     overview: 'Visão Geral · Fornecedoras',
     comparison: 'Tabela Comparativa · Todas as Fornecedoras',
     reproval: 'Reprovações e Reemissões',
@@ -3408,6 +3456,1010 @@ function toggleTheme() {
   body.classList.toggle('light-mode');
   btn.textContent = body.classList.contains('light-mode') ? '🌙 Modo Escuro' : '☀️ Modo Claro';
 }
+</script>
+
+
+<script>
+// ═══ Biblioteca de Scripts ═══
+// Para incluir um conteúdo novo, basta acrescentar um item em "temas" da categoria desejada:
+//   { titulo:'...', desc:'...', tipo:'script', texto:'texto pronto para copiar' }
+//   { titulo:'...', desc:'...', tipo:'page',   alvo:'id-da-pagina-do-hub' }
+//   { titulo:'...', desc:'...', tipo:'link',   alvo:'https://...' }
+var BIBLIOTECA = [
+  { id:'validacao', nome:'Validação', icone:'clipboard', temas:[
+    { titulo:'Tabela Comparativa', desc:'Regras de todas as fornecedoras lado a lado.', tipo:'page', alvo:'comparison' },
+    { titulo:'Informações de Faturas', desc:'Tensão nominal, preenchimento da instalação e oscilação na média.', tipo:'page', alvo:'infofatura' },
+    { titulo:'Informações PJ', desc:'Documentação por fornecedora.', tipo:'page', alvo:'infopj' },
+    { titulo:'Calculadoras de Energia', desc:'Calculadoras do sistema iGreen.', tipo:'page', alvo:'calculadora' }
+  ], subcategorias:[
+    { id:'reemissao', nome:'Reemissão', icone:'file', temas:[] },
+    { id:'devolutivas', nome:'Devolutivas', icone:'refresh', temas:[
+      { titulo:'Devolutivas · Reprovações · Reemissões', desc:'Motivos e orientações de devolutivas, reprovações e reemissões.', tipo:'page', alvo:'devolucoes' }
+    ]},
+    { id:'reprovacao', nome:'Reprovação', icone:'ban', temas:[] }
+  ]},
+  { id:'contestacao', nome:'Contestação', icone:'chat', temas:[] },
+  {
+    "id": "fraudes",
+    "nome": "Fraudes",
+    "icone": "shield",
+    "temas": [
+      {
+        "titulo": "Processo de Fraude",
+        "desc": "Investigação da rede, cancelamento dos contratos e tratamento das perdas comerciais.",
+        "tipo": "conteudo",
+        "secoes": [
+          {
+            "aviso": "**Versão preliminar · aguardando validação.** Os itens marcados como “A validar” ainda não foram oficializados."
+          },
+          {
+            "titulo": "O fluxo em três etapas",
+            "texto": "A etapa 2 acontece quando a fraude é confirmada; a etapa 3, quando o cliente foi cancelado.",
+            "grade": [
+              {
+                "titulo": "1 · Investigação",
+                "texto": "Licenciado principal + rede acima e abaixo."
+              },
+              {
+                "titulo": "2 · Fraude confirmada",
+                "texto": "Cancelar, formalizar e acionar a fornecedora."
+              },
+              {
+                "titulo": "3 · Perdas e reversão",
+                "texto": "Levantar perdas, estornar e tentar reverter."
+              }
+            ]
+          },
+          {
+            "titulo": "Etapa 1 · Suspeita de fraude: investigação da rede",
+            "numerada": true,
+            "itens": [
+              "Analisar **todos** os clientes já validados do licenciado principal da fraude.",
+              "Cancelar todos os contratos ainda **não validados** desse licenciado.",
+              "Enviar a leva de clientes cancelados para o time de **Pós-vendas**.",
+              {
+                "x": "Analisar **100 cadastros (de cada)** de no mínimo 2 licenciados da rede **abaixo**.",
+                "tag": "A validar",
+                "sub": "Falta definir: 100 cadastros no total ou 100 por licenciado (veja “Pontos a validar”)."
+              },
+              "Analisar **100 cadastros** do licenciado da rede **acima**."
+            ]
+          },
+          {
+            "titulo": "Etapa 2 · Encontrou fraude: tratamento da fraude confirmada",
+            "numerada": true,
+            "itens": [
+              "Cancelar **todos** os clientes em que consta fraude.",
+              "Formalizar o caso para o **Jurídico** e o **Compliance**.",
+              {
+                "x": "Abrir TK para o time de **Relacionamento** cancelar cada cliente na fornecedora.",
+                "tag": "A validar",
+                "sub": "Verificar prioridade de tratamento desses clientes."
+              }
+            ]
+          },
+          {
+            "titulo": "Etapa 3 · Cliente cancelado: perdas comerciais e reversão",
+            "numerada": true,
+            "itens": [
+              {
+                "x": "Verificar as **perdas comerciais**.",
+                "sub": "Bônus pago · recorrência paga · promoções mensais · boletos emitidos para os clientes."
+              },
+              "Enviar para o time de **Reputação** contatar o cliente: reverter ou estornar.",
+              {
+                "x": "Abrir chamado para o time **Financeiro** realizar o estorno.",
+                "tag": "A validar"
+              }
+            ]
+          },
+          {
+            "titulo": "Pontos a validar antes de oficializar",
+            "grade": [
+              {
+                "titulo": "TK para Relacionamento",
+                "texto": "Como funciona hoje o cancelamento na fornecedora e qual prioridade esses clientes recebem."
+              },
+              {
+                "titulo": "Chamado de estorno",
+                "texto": "Como o Financeiro recebe e executa o estorno hoje."
+              },
+              {
+                "titulo": "Amostra da rede",
+                "texto": "100 cadastros no total ou 100 por licenciado na rede abaixo."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "titulo": "O que conferir em cada documento",
+        "desc": "Regras de análise do Processo de Fraude: fatura, documento pessoal e biometria.",
+        "tipo": "conteudo",
+        "secoes": [
+          {
+            "grade": [
+              {
+                "titulo": "Fatura",
+                "lista": [
+                  "QR Code",
+                  "Código de barras",
+                  "Fonte",
+                  "Possíveis edições",
+                  "Possível uso de IA"
+                ]
+              },
+              {
+                "titulo": "Documento pessoal",
+                "lista": [
+                  "Possíveis edições",
+                  "CPF e CNPJ na Receita Federal",
+                  "Fonte",
+                  "Possível uso de IA"
+                ]
+              },
+              {
+                "titulo": "Biometria",
+                "lista": [
+                  "Traços idênticos",
+                  "Roupa igual à do documento",
+                  "Cenário artificial",
+                  "Expressões incomuns",
+                  "Imagem nítida demais",
+                  "Tons das cores"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "titulo": "Planilha de Controle de Fraudes · estrutura e colunas A–K",
+        "desc": "Guia coluna a coluna para registrar cada caso de fraude: as três abas e o preenchimento das colunas A a K.",
+        "tipo": "conteudo",
+        "secoes": [
+          {
+            "titulo": "A planilha tem três abas",
+            "grade": [
+              {
+                "titulo": "Dashboard",
+                "texto": "Visão macro de todos os dados preenchidos na aba Base de Fraudes."
+              },
+              {
+                "titulo": "Base de Fraudes",
+                "texto": "Onde o preenchimento acontece: uma linha por cliente analisado, da coluna A à O."
+              },
+              {
+                "titulo": "Lista",
+                "texto": "Opções das listas usadas nas colunas da Base de Fraudes. É aqui que se incluem novas opções."
+              }
+            ]
+          },
+          {
+            "titulo": "Colunas A a D · Identificação do cliente e do licenciado",
+            "tabela": {
+              "cab": [
+                "Coluna",
+                "Campo",
+                "Como preencher"
+              ],
+              "linhas": [
+                [
+                  "A",
+                  "ID do cliente",
+                  "ID do cliente que está sendo analisado."
+                ],
+                [
+                  "B",
+                  "ID do licenciado",
+                  "ID do licenciado responsável pelo cliente."
+                ],
+                [
+                  "C",
+                  "Celular do cliente",
+                  "Número de celular do cliente."
+                ],
+                [
+                  "D",
+                  "Celular do licenciado",
+                  "Número de celular do licenciado."
+                ]
+              ]
+            }
+          },
+          {
+            "titulo": "Colunas E a G · Validação e impacto financeiro",
+            "tabela": {
+              "cab": [
+                "Coluna",
+                "Campo",
+                "Como preencher"
+              ],
+              "linhas": [
+                [
+                  "E",
+                  "Operador que validou",
+                  "Usuário que aprovou o cliente."
+                ],
+                [
+                  "F",
+                  "Data da validação",
+                  "Data em que esse operador validou o cliente."
+                ],
+                [
+                  "G",
+                  "Valor pago",
+                  "Soma do bônus pago ao licenciado com valores de fatura, perda comercial do cliente e demais custos analisados."
+                ]
+              ]
+            }
+          },
+          {
+            "titulo": "Colunas H a K · Análise da fraude",
+            "tabela": {
+              "cab": [
+                "Coluna",
+                "Campo",
+                "Como preencher"
+              ],
+              "linhas": [
+                [
+                  "H",
+                  "Descrição da fraude",
+                  "Documento, Fatura, Biometria, E-mail ou Sem fraude (quando nada é confirmado após a análise)."
+                ],
+                [
+                  "I",
+                  "Enviado ao jurídico?",
+                  "**Sim** se já foi enviado por e-mail ao jurídico · **Não** se ainda não foi."
+                ],
+                [
+                  "J",
+                  "Data da análise",
+                  "Dia em que o cliente foi aberto para verificar a fraude."
+                ],
+                [
+                  "K",
+                  "Setor solicitante",
+                  "Quem enviou o caso: Suporte ao cliente, Suporte ao licenciado, Relacionamento, Jurídico, Compliance, Contratos ou Outro."
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "titulo": "Planilha de Controle de Fraudes · encaminhamento (colunas L–O)",
+        "desc": "Para qual time enviar cada cliente e como registrar o resultado.",
+        "tipo": "conteudo",
+        "secoes": [
+          {
+            "titulo": "A situação do cliente define o próximo time",
+            "grade": [
+              {
+                "titulo": "Se o cliente ainda não foi validado",
+                "selo": "Coluna L · Pós-venda",
+                "texto": "Cancele os contratos no sistema e envie ao Pós-venda, que contata o cliente sobre assinar com a iGreen."
+              },
+              {
+                "titulo": "Se o cliente já foi enviado à fornecedora",
+                "selo": "Coluna M · Relacionamento",
+                "texto": "Formalize ao Relacionamento para que faça o cancelamento na fornecedora."
+              },
+              {
+                "titulo": "Se o cliente tem perda comercial",
+                "selo": "Colunas N e O · Reputação",
+                "texto": "Envie à Reputação para tentar reverter ou cancelar e estornar. Registre o resultado no Resumo."
+              }
+            ],
+            "aviso": "**Cliente não validado vai apenas para o Pós-venda:** não envie ao Relacionamento nem à Reputação."
+          },
+          {
+            "titulo": "Colunas L a O · Encaminhamentos e resultado",
+            "tabela": {
+              "cab": [
+                "Coluna",
+                "Campo",
+                "Como preencher"
+              ],
+              "linhas": [
+                [
+                  "L",
+                  "Enviado ao Pós-venda?",
+                  "**Sim** após cancelar os contratos no sistema e enviar ao Pós-venda. Só para clientes ainda não validados."
+                ],
+                [
+                  "M",
+                  "Formalizado ao Relacionamento?",
+                  "**Sim** após formalizar o cancelamento na fornecedora. Só para clientes já enviados à fornecedora."
+                ],
+                [
+                  "N",
+                  "Enviado à Reputação?",
+                  "**Sim** após enviar à Reputação. Obrigatório quando há perda comercial."
+                ],
+                [
+                  "O",
+                  "Resumo",
+                  "Resultado da Reputação: novo contrato assinado, fatura correta enviada, novo documento enviado ou estorno."
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "titulo": "Planilha de Controle de Fraudes · erros comuns e checklist",
+        "desc": "Pontos de atenção e conferência final antes de fechar a linha do cliente.",
+        "tipo": "conteudo",
+        "secoes": [
+          {
+            "titulo": "Erros mais comuns e como evitar",
+            "grade": [
+              {
+                "titulo": "Confundir as datas F e J",
+                "texto": "F é quando o cliente foi validado. J é quando a análise de fraude começou."
+              },
+              {
+                "titulo": "Encaminhar cliente não validado",
+                "texto": "Cliente sem validação vai só para o Pós-venda, nunca ao Relacionamento ou à Reputação."
+              },
+              {
+                "titulo": "Valor pago incompleto",
+                "texto": "A coluna G soma bônus, fatura, perda comercial e demais custos, não só o bônus."
+              },
+              {
+                "titulo": "Resumo esquecido",
+                "texto": "Todo cliente enviado à Reputação precisa ter a coluna O atualizada após o retorno."
+              }
+            ]
+          },
+          {
+            "titulo": "Antes de fechar a linha do cliente",
+            "marca": "✓",
+            "itens": [
+              "**A–D** · Identificação do cliente e do licenciado completa",
+              "**E–F** · Operador e data da validação informados",
+              "**G** · Valor pago com todos os custos somados",
+              "**H** · Tipo de fraude ou “Sem fraude”",
+              "**I–K** · Jurídico, data da análise e setor solicitante",
+              "**L–N** · Encaminhamento de acordo com a situação do cliente",
+              "**O** · Resumo atualizado após o retorno da Reputação"
+            ]
+          }
+        ]
+      },
+      {
+        "titulo": "Planilha Fraudes – Acompanhamento",
+        "desc": "Abre a planilha de controle de fraudes em nova aba (SharePoint).",
+        "tipo": "link",
+        "alvo": "https://igrenenergy-my.sharepoint.com/:x:/g/personal/gabriellesilva_igreenenergy_com_br/IQCxGfzEtWbAQpV46jKS8_NaAQFwSnyfJ4D-b6tCetsSA18?e=PuMWTF"
+      }
+    ]
+  },
+  { id:'contratos', nome:'Contratos', icone:'pen', temas:[
+    { titulo:'Jornada do Contrato', desc:'Abre a jornada do setor de Contratos em nova aba.', tipo:'link', alvo:'https://gaabiislva.github.io/Jornada-Setor-de-Contratos/' }
+  ]},
+  { id:'orientacoes', nome:'Orientações gerais', icone:'book', temas:[
+    { titulo:'Documentação Obrigatória', desc:'Documentos exigidos no cadastro.', tipo:'page', alvo:'docs' },
+    { titulo:'Sumário de Dúvidas', desc:'Respostas para as dúvidas mais frequentes.', tipo:'page', alvo:'sumario' },
+    { titulo:'Leitura de Faturas', desc:'Abre a Central de Leitura das Faturas em nova aba.', tipo:'link', alvo:'https://gaabiislva.github.io/Central-de-leitura-das-faturas/' }
+  ]},
+  {
+    "id": "orbit",
+    "nome": "Orbit · Chamados para o TI",
+    "icone": "support",
+    "temas": [
+      {
+        "titulo": "O que é a Orbit e quando usar",
+        "desc": "A plataforma de chamados para o TI e suas três opções.",
+        "tipo": "conteudo",
+        "secoes": [
+          {
+            "titulo": "O que é a Orbit",
+            "texto": "A Orbit é a plataforma utilizada para abertura e acompanhamento de chamados direcionados ao setor de Tecnologia da Informação (TI). Ela deve ser usada sempre que identificarmos uma situação que necessite de atuação da equipe de TI.",
+            "grade": [
+              {
+                "titulo": "Corrigir erros sistêmicos",
+                "texto": "Falhas e comportamentos errados nas ferramentas."
+              },
+              {
+                "titulo": "Resolver problemas técnicos",
+                "texto": "Situações que travam ou prejudicam a operação."
+              },
+              {
+                "titulo": "Ações com acesso exclusivo",
+                "texto": "O que depende de permissões que só o TI possui."
+              }
+            ],
+            "aviso": "Identificou algo que só o TI resolve? Abra pela Orbit."
+          },
+          {
+            "titulo": "As três opções da plataforma",
+            "grade": [
+              {
+                "titulo": "Hub – Formulário de Demanda",
+                "texto": "Solicitar demandas, melhorias ou alterações relacionadas ao sistema Hub.",
+                "quando": "houver necessidade de melhoria ou ajuste no funcionamento do Hub."
+              },
+              {
+                "titulo": "Pedido de Acesso – iGreen OS",
+                "texto": "Solicitar acesso aos sistemas da iGreen que o colaborador ainda não possui.",
+                "quando": "um novo colaborador ingressar na equipe e precisar de acesso a algum sistema ou a uma aba específica da plataforma."
+              },
+              {
+                "titulo": "TI – Sustentação – Solicitação de Suporte",
+                "selo": "Mais usada",
+                "texto": "Abrir solicitações ao suporte de TI: erros sistêmicos, problemas de funcionamento, correções e melhorias em ferramentas.",
+                "quando": "houver algum problema ou necessidade que dependa da atuação do setor de TI para ser solucionado."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "titulo": "Passo a passo para abrir um chamado",
+        "desc": "Como preencher cada campo do formulário TI – Sustentação – Solicitação de Suporte.",
+        "tipo": "conteudo",
+        "secoes": [
+          {
+            "texto": "Na Orbit, selecione a opção TI – Sustentação – Solicitação de Suporte e preencha os campos abaixo."
+          },
+          {
+            "titulo": "Título",
+            "texto": "Descreva de forma objetiva o assunto da solicitação, seguindo o padrão do setor. O título deve permitir identificar rapidamente o assunto do chamado.",
+            "exemplos": [
+              {
+                "rotulo": "Padrão do setor",
+                "texto": "[Contratos] – Nome do colaborador – Título da demanda"
+              },
+              {
+                "rotulo": "Exemplo",
+                "texto": "[Contratos] – [Emanuela] – ID 1069448 – Erro ao abrir contestação"
+              }
+            ],
+            "aviso": "Chamado sobre cliente ou licenciado específico? Inclua sempre o ID no título. Assim o TI localiza o cadastro envolvido mais rápido."
+          },
+          {
+            "titulo": "Descrição",
+            "texto": "Explique de forma clara, objetiva e completa o que está sendo solicitado. Qualquer pessoa que receba o chamado deve entender o que está acontecendo e o que precisa ser feito, mesmo sem ter acompanhado a situação desde o início.",
+            "itens": [
+              {
+                "t": "Contexto",
+                "d": "o que aconteceu e em qual etapa do processo o problema foi identificado."
+              },
+              {
+                "t": "Dados do cadastro",
+                "d": "IDs e demais dados para localizar o cliente ou licenciado."
+              },
+              {
+                "t": "Exemplos",
+                "d": "casos reais que demonstrem o problema."
+              },
+              {
+                "t": "Comportamento esperado",
+                "d": "como o sistema deveria funcionar ou qual resultado você espera obter."
+              },
+              {
+                "t": "Detalhes adicionais",
+                "d": "tudo o que ajude o TI a analisar e resolver."
+              }
+            ],
+            "aviso": "Evite descrições genéricas ou informações incompletas. Quanto mais completa a descrição, mais fácil para o TI atuar sem pedir informações complementares."
+          },
+          {
+            "titulo": "Anexos",
+            "texto": "Inclua evidências que mostrem claramente a situação descrita, para que o TI consiga visualizar o que está acontecendo e reproduzir o problema.",
+            "itens": [
+              {
+                "t": "Prints de tela",
+                "d": "mostrando o erro ou a situação identificada."
+              },
+              {
+                "t": "Vídeos",
+                "d": "demonstrando o passo a passo até o problema acontecer."
+              },
+              {
+                "t": "Fotos e outras evidências",
+                "d": "que ajudem a contextualizar a solicitação."
+              }
+            ],
+            "aviso": "Os anexos devem estar ligados à solicitação aberta. Evite enviar uma imagem solta, sem contexto ou que não demonstre o problema."
+          },
+          {
+            "titulo": "Tipo de demanda",
+            "texto": "Selecione a opção que melhor representa o tipo de solicitação.",
+            "grade": [
+              {
+                "titulo": "Defeito",
+                "texto": "Erro ou falha em algo que já existe e não está funcionando corretamente.",
+                "ex": "aba que não carrega, informação que não aparece ou funcionalidade com erro durante o uso."
+              },
+              {
+                "titulo": "Melhoria",
+                "texto": "Aprimorar algo que já existe, tornando o funcionamento ou um processo mais eficiente.",
+                "ex": "ajustar uma funcionalidade, melhorar a visualização de informações ou otimizar uma etapa."
+              },
+              {
+                "titulo": "Funcionalidade Nova",
+                "texto": "Adicionar algo que ainda não existe no sistema.",
+                "ex": "criar uma nova aba, um novo recurso ou uma ferramenta que ainda não está disponível."
+              },
+              {
+                "titulo": "Pedido Operacional",
+                "texto": "Atividade operacional que depende de atuação específica do TI e que não conseguimos realizar diretamente.",
+                "ex": "emitir um contrato ou adicionar um data ativo ao cadastro de um cliente."
+              }
+            ]
+          },
+          {
+            "titulo": "Prioridade",
+            "texto": "Indique a urgência considerando o prazo em que a demanda precisa ser analisada e tratada. Da mais para a menos urgente:",
+            "grade": [
+              {
+                "titulo": "Crítica",
+                "texto": "Atuação imediata: o problema causa um impacto que não permite aguardar."
+              },
+              {
+                "titulo": "Alta",
+                "texto": "Precisa ser resolvida no mesmo dia: existe necessidade de tratamento urgente."
+              },
+              {
+                "titulo": "Média",
+                "texto": "Precisa ser resolvida durante a semana, mas pode aguardar alguns dias sem comprometer significativamente a operação."
+              },
+              {
+                "titulo": "Baixa",
+                "texto": "Ajuste ou melhoria sem urgência, que pode ser tratado depois, sem impacto imediato na operação."
+              }
+            ],
+            "aviso": "Defina a prioridade pela real necessidade e pelo impacto na operação. Evite marcar tudo como Alta ou Crítica: isso dificulta identificar o que realmente precisa de atenção imediata."
+          },
+          {
+            "titulo": "Setor Solicitante",
+            "texto": "Selecione sempre Contratos. Assim o TI identifica de qual setor parte a solicitação."
+          },
+          {
+            "titulo": "Sistema Afetado",
+            "texto": "Selecione o sistema em que o problema foi identificado ou no qual a melhoria deverá ser implementada. Isso indica ao TI onde ele deverá atuar. Exemplos: Valida IA, Conexão Green e BECOS."
+          },
+          {
+            "titulo": "Data",
+            "texto": "Preenchida automaticamente pela Orbit. Não é necessário preencher: mantenha a informação gerada pelo sistema."
+          },
+          {
+            "titulo": "Enviar",
+            "texto": "Depois de preencher os campos, envie a solicitação para concluir a abertura do ticket."
+          }
+        ]
+      },
+      {
+        "titulo": "Modelo de título",
+        "desc": "Padrão de título do setor. Se o chamado não envolver cliente ou licenciado específico, retire a parte do ID.",
+        "tipo": "script",
+        "texto": "[Contratos] – [Nome do colaborador] – ID [ID do cliente ou licenciado] – [Título da demanda]"
+      },
+      {
+        "titulo": "Modelo de descrição",
+        "desc": "Roteiro com o que a descrição do chamado deve ter. Troque o que está entre parênteses pelas informações do caso.",
+        "tipo": "script",
+        "texto": "Contexto:\n(O que aconteceu e em qual etapa do processo o problema foi identificado.)\n\nDados do cliente ou licenciado:\nID:\n\nExemplos:\n(Casos reais que demonstrem o problema.)\n\nComportamento esperado:\n(Como o sistema deveria funcionar ou qual resultado você espera obter.)\n\nDetalhes adicionais:\n"
+      },
+      {
+        "titulo": "Acompanhando os chamados",
+        "desc": "As abas Meus Pedidos e Painel da Orbit.",
+        "tipo": "conteudo",
+        "secoes": [
+          {
+            "texto": "Depois de enviar a solicitação, o ticket fica aberto e pode ser acompanhado em duas abas da Orbit: Meus Pedidos e Painel."
+          },
+          {
+            "titulo": "Meus Pedidos · visão individual",
+            "itens": [
+              "Todos os pedidos abertos pelo seu usuário.",
+              "Andamento e status de cada solicitação.",
+              "O que ainda está em aberto e o que já foi resolvido.",
+              "Cancelamento de pedidos que não são mais necessários."
+            ],
+            "aviso": "Essa aba mostra apenas os pedidos do seu próprio usuário."
+          },
+          {
+            "titulo": "Painel · visão geral",
+            "texto": "Visão visual e geral dos chamados, com indicadores do andamento das solicitações:",
+            "itens": [
+              {
+                "t": "Backlog",
+                "d": "quantidade de chamados registrados."
+              },
+              {
+                "t": "Chamados em aberto",
+                "d": "solicitações que ainda aguardam resolução."
+              },
+              {
+                "t": "Chamados resolvidos",
+                "d": "solicitações já finalizadas."
+              },
+              {
+                "t": "Chamados com prazo vencido",
+                "d": "solicitações cujo prazo de atendimento já foi ultrapassado."
+              },
+              {
+                "t": "Tempo médio de resolução",
+                "d": "média de tempo necessário para resolver os chamados."
+              }
+            ],
+            "aviso": "O Painel ajuda a identificar os chamados que precisam de maior atenção."
+          }
+        ]
+      },
+      {
+        "titulo": "Checklist antes de enviar",
+        "desc": "Confira estes pontos antes de clicar em enviar.",
+        "tipo": "conteudo",
+        "secoes": [
+          {
+            "marca": "✓",
+            "itens": [
+              "Opção TI – Sustentação selecionada.",
+              "Título no padrão do setor, com o ID do cliente ou licenciado quando houver.",
+              "Descrição com contexto, exemplos e comportamento esperado.",
+              "Anexos que comprovam o que foi descrito.",
+              "Tipo de demanda e prioridade coerentes com o impacto.",
+              "Setor Contratos e sistema afetado corretos.",
+              "Depois de enviar, acompanhe o chamado pela Orbit (Meus Pedidos e Painel)."
+            ]
+          }
+        ]
+      }
+    ]
+  }
+];
+
+(function () {
+  var ICONES = {
+    leaf: '<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>',
+    search: '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+    clipboard: '<rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/>',
+    chat: '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',
+    file: '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>',
+    ban: '<circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/>',
+    refresh: '<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/>',
+    shield: '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/>',
+    pen: '<path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"/>',
+    book: '<path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/>'
+  };
+  ICONES.support = '<circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/><circle cx="12" cy="12" r="4"/>';
+  var TIPOS = { page: 'Página do hub', link: 'Link externo ↗', script: 'Script', conteudo: 'Guia' };
+  var BIB = { view: 'home', cat: null, tema: null, query: '', opening: false };
+
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+  function icon(nome, size) {
+    var s = el('span', 'bib-ico');
+    s.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="' + size + '" height="' + size + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + (ICONES[nome] || '') + '</svg>';
+    return s;
+  }
+  function norm(s) {
+    return (s || '').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+  function catPorId(id) {
+    for (var i = 0; i < BIBLIOTECA.length; i++) {
+      if (BIBLIOTECA[i].id === id) return BIBLIOTECA[i];
+      var subs = BIBLIOTECA[i].subcategorias || [];
+      for (var j = 0; j < subs.length; j++) if (subs[j].id === id) return subs[j];
+    }
+    return null;
+  }
+  function paiDe(id) {
+    for (var i = 0; i < BIBLIOTECA.length; i++) {
+      var subs = BIBLIOTECA[i].subcategorias || [];
+      for (var j = 0; j < subs.length; j++) if (subs[j].id === id) return BIBLIOTECA[i];
+    }
+    return null;
+  }
+  function contarTemas(cat) {
+    var n = cat.temas.length;
+    (cat.subcategorias || []).forEach(function (s) { n += contarTemas(s); });
+    return n;
+  }
+  function rotuloQtd(cat) {
+    var n = contarTemas(cat);
+    return n === 0 ? 'Em breve' : (n === 1 ? '1 conteúdo' : n + ' conteúdos');
+  }
+
+  function copiar(texto, btn) {
+    function feito() { btn.textContent = 'Copiado ✓'; setTimeout(function () { btn.textContent = 'Copiar texto'; }, 1800); }
+    function alternativa() {
+      try {
+        var ta = document.createElement('textarea');
+        ta.value = texto; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        if (typeof document.execCommand === 'function') document.execCommand('copy');
+        document.body.removeChild(ta);
+      } catch (e) {}
+      feito();
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(texto).then(feito, alternativa);
+    else alternativa();
+  }
+
+  function abrirTema(cat, tema) {
+    if (tema.tipo === 'page') {
+      BIB.view = 'categoria'; BIB.cat = cat.id; BIB.opening = true;
+      window.showPage(tema.alvo);
+    } else if (tema.tipo === 'link') {
+      window.open(tema.alvo, '_blank', 'noopener');
+    } else {
+      BIB.view = (tema.tipo === 'conteudo') ? 'conteudo' : 'script'; BIB.cat = cat.id; BIB.tema = tema;
+      render();
+    }
+  }
+
+  function cardTema(cat, tema, mostrarCategoria) {
+    var b = el('button', 'bib-card');
+    b.type = 'button';
+    b.appendChild(el('div', 'bib-card-title', tema.titulo));
+    if (tema.desc) b.appendChild(el('div', 'bib-card-sub', tema.desc));
+    b.appendChild(el('span', 'bib-chip', (mostrarCategoria ? cat.nome + ' · ' : '') + (TIPOS[tema.tipo] || 'Script')));
+    b.addEventListener('click', function () { abrirTema(cat, tema); });
+    return b;
+  }
+
+  function textoSecoes(t) {
+    var out = [];
+    (t.secoes || []).forEach(function (s) {
+      [s.titulo, s.texto, s.aviso].forEach(function (x) { if (x) out.push(x); });
+      (s.exemplos || []).forEach(function (e) { out.push(e.rotulo, e.texto); });
+      (s.itens || []).forEach(function (i) {
+        if (typeof i === 'string') out.push(i);
+        else out.push(i.x || (i.t + ' ' + i.d), i.sub, i.tag);
+      });
+      if (s.tabela) { out.push(s.tabela.cab.join(' ')); s.tabela.linhas.forEach(function (l) { out.push(l.join(' ')); }); }
+      (s.grade || []).forEach(function (g) { out.push(g.titulo, g.texto, g.ex, g.quando, g.selo, (g.lista || []).join(' ')); });
+    });
+    return out.filter(Boolean).join(' ').replace(/\*\*/g, '');
+  }
+
+  function renderBodyHome(body) {
+    body.innerHTML = '';
+    var q = norm(BIB.query.trim());
+    if (q) {
+      var achados = [];
+      function varrer(cat, pai) {
+        cat.temas.forEach(function (t) {
+          if (norm([t.titulo, t.desc, t.texto, textoSecoes(t), cat.nome, pai ? pai.nome : ''].join(' ')).indexOf(q) !== -1) achados.push([cat, t]);
+        });
+        (cat.subcategorias || []).forEach(function (s) { varrer(s, cat); });
+      }
+      BIBLIOTECA.forEach(function (cat) { varrer(cat, null); });
+      body.appendChild(el('div', 'bib-section-label', achados.length === 1 ? '1 resultado' : achados.length + ' resultados'));
+      if (!achados.length) { body.appendChild(el('div', 'bib-empty', 'Nenhum conteúdo encontrado para essa busca.')); return; }
+      var g = el('div', 'bib-grid bib-grid-temas');
+      achados.forEach(function (p) { g.appendChild(cardTema(p[0], p[1], true)); });
+      body.appendChild(g);
+      return;
+    }
+    body.appendChild(el('div', 'bib-section-label', 'Categorias de scripts'));
+    var grid = el('div', 'bib-grid');
+    BIBLIOTECA.forEach(function (cat) {
+      var b = el('button', 'bib-card');
+      b.type = 'button';
+      b.appendChild(icon(cat.icone, 22));
+      b.appendChild(el('div', 'bib-card-title', cat.nome));
+      b.appendChild(el('div', 'bib-card-sub', rotuloQtd(cat)));
+      b.addEventListener('click', function () { BIB.view = 'categoria'; BIB.cat = cat.id; render(); });
+      grid.appendChild(b);
+    });
+    body.appendChild(grid);
+  }
+
+  function renderHome(root) {
+    var banner = el('div', 'bib-banner');
+    var brand = el('div', 'bib-brand');
+    var logo = el('div', 'bib-logo');
+    logo.appendChild(icon('leaf', 24));
+    var bt = el('div');
+    bt.appendChild(el('div', 'bib-brand-title', 'iGreen | Biblioteca de Scripts'));
+    bt.appendChild(el('div', 'bib-brand-sub', 'Central de apoio operacional'));
+    brand.appendChild(logo); brand.appendChild(bt);
+    banner.appendChild(brand);
+    banner.appendChild(el('div', 'bib-hello', 'Olá! O que você precisa encontrar?'));
+    var sw = el('label', 'bib-search');
+    var si = icon('search', 18); si.style.margin = '0'; si.style.color = '#6b7280';
+    sw.appendChild(si);
+    var inp = document.createElement('input');
+    inp.type = 'text'; inp.id = 'bibSearchInput'; inp.placeholder = 'Pesquisar scripts ou palavras-chave...'; inp.value = BIB.query;
+    sw.appendChild(inp);
+    banner.appendChild(sw);
+    root.appendChild(banner);
+    var body = el('div'); body.id = 'bibBody';
+    root.appendChild(body);
+    inp.addEventListener('input', function () { BIB.query = inp.value; renderBodyHome(body); });
+    renderBodyHome(body);
+  }
+
+  function renderCategoria(root) {
+    var cat = catPorId(BIB.cat);
+    if (!cat) { BIB.view = 'home'; return renderHome(root); }
+    var pai = paiDe(cat.id);
+    var voltar = el('button', 'bib-link', pai ? '← ' + pai.nome : '← Categorias');
+    voltar.type = 'button';
+    voltar.addEventListener('click', function () {
+      if (pai) { BIB.cat = pai.id; } else { BIB.view = 'home'; BIB.cat = null; BIB.query = ''; }
+      render();
+    });
+    root.appendChild(voltar);
+    var head = el('div', 'bib-cat-head');
+    head.appendChild(icon(cat.icone, 28));
+    head.appendChild(el('div', 'bib-cat-title', cat.nome));
+    root.appendChild(head);
+    var subs = cat.subcategorias || [];
+    if (subs.length) {
+      var gs = el('div', 'bib-grid');
+      subs.forEach(function (s) {
+        var b = el('button', 'bib-card');
+        b.type = 'button';
+        b.appendChild(icon(s.icone, 22));
+        b.appendChild(el('div', 'bib-card-title', s.nome));
+        b.appendChild(el('div', 'bib-card-sub', rotuloQtd(s)));
+        b.addEventListener('click', function () { BIB.view = 'categoria'; BIB.cat = s.id; render(); });
+        gs.appendChild(b);
+      });
+      root.appendChild(gs);
+    }
+    if (!cat.temas.length && !subs.length) {
+      root.appendChild(el('div', 'bib-empty', 'Ainda não há conteúdos nesta categoria. Os materiais serão adicionados aqui.'));
+      return;
+    }
+    if (cat.temas.length) {
+      if (subs.length) root.appendChild(el('div', 'bib-section-label', 'Conteúdos de ' + cat.nome));
+      var g = el('div', 'bib-grid bib-grid-temas');
+      cat.temas.forEach(function (t) { g.appendChild(cardTema(cat, t, false)); });
+      root.appendChild(g);
+    }
+  }
+
+  function renderScript(root) {
+    var cat = catPorId(BIB.cat), t = BIB.tema;
+    if (!cat || !t) { BIB.view = 'home'; return renderHome(root); }
+    var voltar = el('button', 'bib-link', '← ' + cat.nome);
+    voltar.type = 'button';
+    voltar.addEventListener('click', function () { BIB.view = 'categoria'; BIB.tema = null; render(); });
+    root.appendChild(voltar);
+    var box = el('div', 'bib-script');
+    box.appendChild(el('div', 'bib-cat-title', t.titulo));
+    if (t.desc) box.appendChild(el('div', 'bib-card-sub', t.desc));
+    box.appendChild(el('pre', null, t.texto || ''));
+    var btn = el('button', 'bib-btn', 'Copiar texto');
+    btn.type = 'button';
+    btn.addEventListener('click', function () { copiar(t.texto || '', btn); });
+    box.appendChild(btn);
+    root.appendChild(box);
+  }
+
+  function rich(parent, texto) {
+    String(texto).split('**').forEach(function (p, i) {
+      if (!p) return;
+      if (i % 2 === 1) parent.appendChild(el('strong', null, p));
+      else parent.appendChild(document.createTextNode(p));
+    });
+    return parent;
+  }
+
+  function renderConteudo(root) {
+    var cat = catPorId(BIB.cat), t = BIB.tema;
+    if (!cat || !t) { BIB.view = 'home'; return renderHome(root); }
+    var voltar = el('button', 'bib-link', '← ' + cat.nome);
+    voltar.type = 'button';
+    voltar.addEventListener('click', function () { BIB.view = 'categoria'; BIB.tema = null; render(); });
+    root.appendChild(voltar);
+    var doc = el('div', 'bib-doc');
+    doc.appendChild(el('div', 'bib-cat-title', t.titulo));
+    if (t.desc) doc.appendChild(el('div', 'bib-card-sub', t.desc));
+    (t.secoes || []).forEach(function (s) {
+      var sec = el('section', 'bib-sec');
+      if (s.titulo) sec.appendChild(el('h3', 'bib-sec-title', s.titulo));
+      if (s.texto) sec.appendChild(rich(el('p', 'bib-sec-text'), s.texto));
+      (s.exemplos || []).forEach(function (e) {
+        var b = el('div', 'bib-code');
+        b.appendChild(el('div', 'bib-code-label', e.rotulo));
+        b.appendChild(el('div', 'bib-code-text', e.texto));
+        sec.appendChild(b);
+      });
+      if (s.itens && s.itens.length) {
+        var ul = el('ul', 'bib-list');
+        s.itens.forEach(function (i, n) {
+          var obj = (typeof i === 'object') ? i : {};
+          var li = el('li');
+          li.appendChild(el('span', 'bib-mark', s.numerada ? (n + 1) + '.' : (s.marca || '•')));
+          var corpo = el('div', 'bib-li-body');
+          var linha = el('div');
+          if (typeof i === 'string') rich(linha, i);
+          else if (obj.x !== undefined) rich(linha, obj.x);
+          else { linha.appendChild(el('strong', null, obj.t)); linha.appendChild(document.createTextNode(' — ' + obj.d)); }
+          if (obj.tag) linha.appendChild(el('span', 'bib-chip bib-chip-inline bib-chip-warn', obj.tag));
+          corpo.appendChild(linha);
+          if (obj.sub) corpo.appendChild(el('div', 'bib-li-sub', obj.sub));
+          li.appendChild(corpo);
+          ul.appendChild(li);
+        });
+        sec.appendChild(ul);
+      }
+      if (s.tabela) {
+        var wrap = el('div', 'bib-table-wrap');
+        var tb = el('table', 'bib-table');
+        var thead = el('thead'), trh = el('tr');
+        s.tabela.cab.forEach(function (h) { trh.appendChild(el('th', null, h)); });
+        thead.appendChild(trh); tb.appendChild(thead);
+        var tbody = el('tbody');
+        s.tabela.linhas.forEach(function (l) {
+          var tr = el('tr');
+          l.forEach(function (cel, k) { var td = el('td', k === 0 ? 'bib-col-id' : null); rich(td, cel); tr.appendChild(td); });
+          tbody.appendChild(tr);
+        });
+        tb.appendChild(tbody); wrap.appendChild(tb); sec.appendChild(wrap);
+      }
+      if (s.grade && s.grade.length) {
+        var g = el('div', 'bib-mini-grid');
+        s.grade.forEach(function (gi) {
+          var m = el('div', 'bib-mini');
+          var h = el('div', 'bib-mini-title', gi.titulo);
+          if (gi.selo) h.appendChild(el('span', 'bib-chip bib-chip-inline', gi.selo));
+          m.appendChild(h);
+          if (gi.texto) m.appendChild(el('div', 'bib-mini-text', gi.texto));
+          if (gi.lista) { var ol = el('ol', 'bib-mini-ol'); gi.lista.forEach(function (x) { ol.appendChild(el('li', null, x)); }); m.appendChild(ol); }
+          if (gi.ex) m.appendChild(el('div', 'bib-mini-ex', 'Ex.: ' + gi.ex));
+          if (gi.quando) m.appendChild(el('div', 'bib-mini-ex', 'Quando usar: ' + gi.quando));
+          g.appendChild(m);
+        });
+        sec.appendChild(g);
+      }
+      if (s.aviso) sec.appendChild(rich(el('div', 'bib-aviso'), s.aviso));
+      doc.appendChild(sec);
+    });
+    root.appendChild(doc);
+  }
+
+  function render() {
+    var root = document.getElementById('bibRoot');
+    if (!root) return;
+    root.innerHTML = '';
+    if (BIB.view === 'categoria') renderCategoria(root);
+    else if (BIB.view === 'script') renderScript(root);
+    else if (BIB.view === 'conteudo') renderConteudo(root);
+    else renderHome(root);
+    document.documentElement.scrollTop = 0; document.body.scrollTop = 0;
+    var principal = document.querySelector('.main'); if (principal) principal.scrollTop = 0;
+  }
+
+  var PAGINAS_BIB = ['biblioteca', 'comparison', 'docs', 'devolucoes', 'infopj', 'infofatura', 'calculadora', 'sumario'];
+  function aoNavegar(id, veioDaBiblioteca) {
+    var voltar = document.getElementById('bibBackBtn');
+    var item = document.getElementById('nav-biblioteca');
+    if (voltar) voltar.style.display = (veioDaBiblioteca && id && id !== 'biblioteca') ? '' : 'none';
+    if (item) item.classList.toggle('active', PAGINAS_BIB.indexOf(id) !== -1);
+  }
+
+  var showPageOriginal = window.showPage;
+  window.showPage = function (id) {
+    var veio = BIB.opening; BIB.opening = false;
+    showPageOriginal.apply(this, arguments);
+    if (id === 'biblioteca') render();
+    aoNavegar(id, veio);
+  };
+  var showSupplierOriginal = window.showSupplier;
+  window.showSupplier = function () {
+    BIB.opening = false;
+    showSupplierOriginal.apply(this, arguments);
+    aoNavegar(null, false);
+  };
+  window.bibVoltar = function () { BIB.opening = false; window.showPage('biblioteca'); };
+  render();
+})();
 </script>
 
 </body>
